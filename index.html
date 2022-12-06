@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./multimedia/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>INGRESAR USUARIOS</title>
+</head>
+<body>
+    <h1 class="principal__titulo">ASIGNACIÓN DE NÚMERO</h1>
+    <div class="principal">
+        <form action="" class="principal__formulario">
+            <label for=""><input type="name" name="nombre" required placeholder="Nombre"></label>
+            <label for=""><input type="name" name="apellido" required placeholder="Apellido"></label>
+            <label for=""><input type="text" name="dni" minlength="8" maxlength="8" required placeholder="DNI"></label>
+
+            <label for="">
+                <select name="Tipo de usuario" id="" required>
+                    <option disabled selected value> -- Seleccione una opción -- </option>
+                    <option value="Obra Social">Obra social</option>
+                    <option value="Particular">Particular</option>
+                </select>
+            </label>
+
+            <label for=""><input type="text" name="dni" minlength="8" maxlength="8" placeholder="Número de Obra Social"></label>
+            <label for=""><button type="submit" class="button__solicitar">¡SOLICITAR TURNO!</button></label>
+        </form>
+        <div class="principal__turnoynumero">
+            <div class="principal__turno">
+
+                <div class="principal__numero">
+                    <h3>SU TURNO</h3>
+                    <h3>--</h3>
+                </div>
+
+                <div class="principal__fecha_y_hora">
+
+                    <div class="principal__fecha">
+                        <h3>FECHA DE INGRESO</h3>
+                        <h3>--:--</h3>
+                    </div>
+
+                    <div class="principal__hora">
+                        <h3>HORA DE INGRESO</h3>
+                        <h3>--:--</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <footer>
+        <h3 class="link__ver-turnos"><a href="./pages/ver_turnos.html">VER TURNOS</a></h3>
+    </footer>
+    <script src="./script/script.js"></script>
+</body>
+</html>

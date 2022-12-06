@@ -1,0 +1,165 @@
+:root{
+    --color-verde-input:2px solid #2fe218;
+    --color-verde:#2fe218;
+}
+
+html{
+    font-size: 62.5%;
+    margin: 0 0;
+    padding: 0 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-image: url(../multimedia/fondo.png);
+}
+
+.principal__titulo{
+    text-align: center;
+    font-size: 50px;
+    margin: 1.5rem 0;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.principal__formulario{
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+label{
+    margin: 1rem 0;
+    text-align:center;
+}
+
+input{
+    font-size: 1.5rem;
+    text-align: center;
+    width: 30rem;
+    height: 2rem;
+}
+
+input:hover{
+    border: var(--color-verde-input);
+}
+
+input:focus{
+    border: none;
+    outline: var(--color-verde-input);
+}
+
+select:hover{
+    border: var(--color-verde-input);
+}
+
+.button__solicitar{
+    margin-top: 2rem;
+    width: 15rem;
+    height: 2.5rem;
+    font-weight: bold;
+}
+
+.button__solicitar:hover{
+    border: var(--color-verde-input);
+    border-radius: 3px;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3 rem;
+}
+
+footer{
+    margin: 1rem 0;
+}
+
+.principal__turnoynumero{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: 1rem 0;
+    font-size: 22px;
+}
+
+.principal__turno{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-size: large;
+    text-align: center;
+    font-size: 25px;
+    margin: 0 3rem;
+    width: 40%;
+    height: 34rem;
+    background: white;
+    border: 3px solid black;
+    border-radius: 1rem;
+    background-image: url(../multimedia/fondo2.png);
+}
+
+.principal__fecha_y_hora{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.principal__fecha{
+    
+}
+
+.principal__hora{
+
+}
+
+.div__turnos{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    border: 3px solid black;
+    width: 90%;
+    height: 70rem;
+    margin: 0 auto;
+    background-image: url(../multimedia/fondo2.png);
+}
+
+.link__ingresar-usuarios, .link__ver-turnos{
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 3rem;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+
+.lista__hora{
+    font-size: 3rem;
+    border: 3px solid black;
+    margin: 1rem;
+}
+
+.lista__turnos{
+    font-size: 3rem;
+    border: 3px solid black;
+    margin: 1rem;
+    height: 50rem;
+}
+
+.lista__titulos{
+    margin-top: 1rem;
+}
+
