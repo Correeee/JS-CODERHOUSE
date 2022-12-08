@@ -15,17 +15,22 @@ let numero_obra = "";
 let date = new Date();
 let dia = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 let mes =  ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
 let reloj = new Date();
 let hora = reloj.toLocaleTimeString();
-let fecha = (`${dia[date.getDay()]}, ${date.getDate()} de ${mes[date.getMonth()]} de ${date.getFullYear()}.`) 
+let fecha = (`${dia[date.getDay()]}, ${date.getDate()} de ${mes[date.getMonth()]} de ${date.getFullYear()}.`); 
+
 //---------------------------------------------------------------------------
 
 //INGRESAR: PERMITE REGISTRAR TURNOS, ASIGNARLES UN NÚMERO Y AUMENTAR EL TIEMPO DE ESPERA.
 
 function Turnos(){
+    reloj = new Date();
+    hora = reloj.toLocaleTimeString();
+    fecha = (`${dia[date.getDay()]}, ${date.getDate()} de ${mes[date.getMonth()]} de ${date.getFullYear()}.`); 
+    console.log("<---USUARIO--->")
     while(nombre == ""){
         nombre = prompt("Nombre: ");
-        console.log("<---USUARIO--->")
         console.log("Nombre:" , nombre);
     }
     
@@ -49,14 +54,13 @@ function Turnos(){
 
             console.log("Numero de Obra Social: " , numero_obra);
             turno_obra++;
-            console.log("Turno OBR-" + turno_obra);
-
+            console.log("Turno: OBR-" + turno_obra);
             console.log("Fecha: " , fecha);
             console.log("Hora: " , hora);
+            console.log("\n");
 
-
-    
             alert("Nombre: " + nombre + "\n" + "Apellido: " + apellido + "\n" +"DNI: " + dni + "\n" + "Tipo de usuario: " + tipo_de_usuario + "\n" + "Numero de Obra Social: " + numero_obra + "\n" + "\n" + "TURNO: OBR-" + turno_obra + "\n" + "Fecha: "+ fecha + "\n" + "Hora: " + hora);
+        
 
             Capturar_turnos_obra();
 
@@ -72,9 +76,10 @@ function Turnos(){
 
             console.log("PARTICULAR");
             turno_particular++;
-            console.log("Turno PAR-" + turno_particular);
+            console.log("Turno: PAR-" + turno_particular);
             console.log(fecha);
             console.log(hora);
+            console.log("\n");
 
             alert("Nombre: " + nombre + "\n" + "Apellido: " + apellido + "\n" +"DNI: " + dni + "\n" + "Tipo de usuario: " + tipo_de_usuario + "\n" + "\n" + "TURNO: PAR-" + turno_particular + "\n" + "Fecha: "+ fecha + "\n" + "Hora: " + hora);
 
@@ -107,6 +112,9 @@ function Ingresar(){
                 dni = "";
                 tipo_de_usuario = "";
                 numero_obra = "";
+                reloj = "";
+                hora = "";
+                fecha = "";
                 Turnos();
             }
             else if(ingresar_nuevo_usuario == "NO" || ingresar_nuevo_usuario == "no"){
@@ -170,11 +178,18 @@ function Lista_particulares(){
 }
 
 
-
 //EJECUCIÓN
-
 alert("ASIGNACIÓN DE NÚMERO");
 Turnos();
+//Muestra la lista de turnos
 console.log("<---TURNOS--->");
-console.log(lista_turnos);
+console.log(lista_turnos.join("\n"));
+
+
+
+/*Eliminar último turno (Será un botón).
+let eliminar_ultimo_usuario = lista_turnos.shift();*/
+
+/*Eliminar un usuario específico (Será un input con un botón).
+let eliminar_usuario_específico = lista_turnos.indexOf();*/
 
