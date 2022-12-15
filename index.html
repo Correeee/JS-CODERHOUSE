@@ -9,18 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./multimedia/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
-    <title>PANEL DE CONTROL</title>
+    <title>PANEL DE CONTROL | VENTANILLA</title>
 </head>
 <body>
-    <h1 class="body__titulo">PANEL DE CONTROL</h1>
+    <h1 class="body__titulo">PANEL DE CONTROL - VENTANILLA</h1>
     <div class="div__todo">
         <div class="principal">
-            <h3 class="principal__titulo">Asignar turno</h3>
+            <h3 class="principal__titulo">ASIGNAR TURNOS</h3>
             <form action="" class="principal__formulario">
                 <label for=""><input type="name" name="nombre" required placeholder="Nombre"></label>
                 <label for=""><input type="name" name="apellido" required placeholder="Apellido"></label>
                 <label for=""><input type="text" name="dni" minlength="8" maxlength="8" required placeholder="DNI"></label>
-
+                <label for=""><input type="text" name="motivo" required placeholder="Motivo de consulta" class="input__motivo"></label>
                 <label for="">
                     <select name="Tipo de usuario" id="" required>
                         <option disabled selected value> -- Seleccione una opción -- </option>
@@ -28,8 +28,8 @@
                         <option value="Particular">Particular</option>
                     </select>
                 </label>
-
-                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" placeholder="Número de Obra Social"></label>
+                <label for=""><input type="text" name="Obra social" placeholder="Obra Social"></label>
+                <label for=""><input type="text" name="Numero de obra social" placeholder="Número de Obra Social"></label>
                 <label for=""><button type="submit" class="button__solicitar">¡SOLICITAR TURNO!</button></label>
             </form>
             <div class="principal__turnoynumero">
@@ -62,7 +62,9 @@
                 <div class="panel__lista">
                     <h3 class="panel__titulo">TURNOS ASIGNADOS</h3>
                     <div class="panel__turnos">
-
+                        <ul class="panel__lista_ul">
+                            <li>-</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -72,8 +74,18 @@
                         <label for=""><input type="text" name="eliminar-usuario" id="" placeholder="Turno a eliminar" class="input__eliminar-usuario"></label>
                         <label for=""><button type="submit">Eliminar Turno</button></label>
                     </form>
-                    <label for=""><button type="submit">Eliminar el primer turno de la lista</button></label>
+                    <label for=""><button type="submit" class="button_eliminar">Eliminar el primer turno de la lista</button></label>
 
+                </div>
+
+                <div class="panel__controles2">
+                    <h3 class="titulo__asignar-sala">Asignar Sala a Turno</h3>
+                    <form action="" class="form__asignar-sala">
+                        <label for=""><input type="text" name="turno" id="" placeholder="Ingrese número de turno OBR" class="input__asignar-sala-a-turnoOBR"></label>
+                        <label for=""><input type="text" name="turno" id="" placeholder="Ingrese número de turno PAR" class="input__asignar-sala-a-turnoPAR"></label>
+                        <label for=""><input type="text" name="asignar sala" id="" placeholder="Sala (1 a 10)" class="input__asignar-sala"></label>
+                        <label for=""><button type="submit">Asignar Sala</button></label>
+                    </form>
                 </div>
 
             </div>
@@ -83,6 +95,6 @@
     <footer>
         <h3 class="link__ver-turnos"><a href="./pages/ver_turnos.html">VER TURNOS</a></h3>
     </footer>
-    <!-- <script src="./script/script.js"></script> -->
+    <script src="./script/script.js"></script>
 </body>
 </html>

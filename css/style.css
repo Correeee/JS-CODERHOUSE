@@ -40,7 +40,7 @@ body{
 }
 
 label{
-    margin: 1rem 0;
+    margin: 0.6rem 1rem;
     text-align:center;
     height: 2.8rem;
 }
@@ -56,19 +56,27 @@ input:hover{
 }
 
 input:focus{
-    border: none;
-    outline: var(--color-verde-input);
+    border: var(--color-verde-input);
+    outline: none;
+}
+
+select{
+    font-weight: bold;
+    text-align: center;
 }
 
 select:hover{
     border: var(--color-verde-input);
 } 
 
-.button__solicitar{
-    margin-top: 2rem;
+.button__solicitar, button{
     width: 15rem;
     height: 2.5rem;
     font-weight: bold;
+}
+
+.button_eliminar{
+    width: 25rem;
 }
 
 button:hover{
@@ -103,7 +111,6 @@ footer{
     font-size: large;
     text-align: center;
     font-size: 25px;
-    margin: 0 3rem;
     width: 50rem;
     height: 34rem;
     background: white;
@@ -117,27 +124,9 @@ footer{
     flex-direction: row;
     justify-content: space-around;
     align-content: center;
+    border-top: 3px solid black;
 }
 
-.principal__fecha{
-    
-}
-
-.principal__hora{
-
-}
-
-.div__turnos{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: white;
-    border: 3px solid black;
-    width: 90%;
-    height: 70rem;
-    margin: 0 auto;
-    background-image: url(../multimedia/fondo2.png);
-}
 
 .link__ingresar-usuarios, .link__ver-turnos{
     text-align: center;
@@ -153,23 +142,6 @@ a{
     border: 2px solid black;
     border-radius: 5px;
 
-}
-
-.lista__hora{
-    font-size: 3rem;
-    border: 3px solid black;
-    margin: 1rem;
-}
-
-.lista__turnos{
-    font-size: 3rem;
-    border: 3px solid black;
-    margin: 1rem;
-    height: 50rem;
-}
-
-.lista__titulos{
-    margin-top: 1rem;
 }
 
 .panel{
@@ -189,13 +161,13 @@ a{
 
 .panel__turnos{
     width: 35rem;
-    height: 50rem;
+    height: 32rem;
     background: white;
     border: 3px solid black;
     border-radius: 1rem;
 }
 
-.panel__controles{
+.panel__controles, .panel__controles2{
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -204,6 +176,19 @@ a{
     background: white;
     border: 3px solid black;
     border-radius: 1rem;
+    width: 35rem;
+    margin: 1rem 0;
+}
+
+.titulo__asignar-sala{
+    font-size: medium;
+}
+
+.form__asignar-sala{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
 }
 
 .div__todo{
@@ -224,3 +209,64 @@ a{
 .input__eliminar-usuario{
     width: 14rem;
 }
+
+.panel__lista_ul{
+    text-align: center;
+    font-size: 3rem;
+}
+
+ul{
+    padding: 0 0;
+}
+
+li{
+    list-style-type:none;
+    text-align: center;
+    font-size: medium;
+}
+
+.turnoysala{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+/* PANTALLA USUARIOS */
+
+.div__turnos{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    border: 3px solid black;
+    width: 90%;
+    height: 70rem;
+    margin: 0 auto;
+    background-image: url(../multimedia/fondo2.png);
+}
+
+.lista__hora{
+    font-size: 3rem;
+    border: 3px solid black;
+    margin: 1rem;
+}
+
+.lista__turnos{
+    font-size: 3rem;
+    border: 3px solid black;
+    margin: 1rem;
+    height: 50rem;
+}
+
+.lista__titulos{
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
