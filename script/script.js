@@ -7,16 +7,16 @@ let nombre = "";
 let apellido = "";
 let dni = "";
 let motivo_de_consulta = "";
-let tipo_de_usuario = "";
+let tipo_de_usuario = ""; //OBR (OBRA SOCIAL) o PAR (PARTICULAR)
 let ingresar_nuevo_usuario = "";
-let nombre_obra = "";
-let numero_obra = ""; //Número de obra social
-let numero_sala = ""; //Número de sala al que debe ir el paciente.
-let panel_turno_obr = "";
-let panel_turno_par = "";
-let panel_sala = "";
+let nombre_obra = ""; //Nombre de la Obra Social.
+let numero_obra = ""; //Número de Obra Social.
+let numero_sala = ""; //Número de Sala al que debe ir el paciente.
+let input_turno_obr = ""; //input del Turno OBR.
+let input_turno_par = ""; //input del Turno PAR.
+let input_sala = ""; //input del Número de Sala.
 
-//FECHA Y HORA
+/////////////////FECHA Y HORA///////////////////
 
 let date = new Date();
 let dia = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
@@ -26,9 +26,7 @@ let reloj = new Date();
 let hora = reloj.toLocaleTimeString();
 let fecha = (`${dia[date.getDay()]}, ${date.getDate()} de ${mes[date.getMonth()]} de ${date.getFullYear()}.`); 
 
-//---------------------------------------------------------------------------
-
-/*PANEL DE CONTROL / VENTANILLA*/
+///////////////////////////////////*PANEL DE CONTROL / VENTANILLA*/////////////////////////
 
 //INGRESAR: PERMITE REGISTRAR TURNOS, ASIGNARLES UN NÚMERO Y AUMENTAR EL TIEMPO DE ESPERA.
 
@@ -208,60 +206,23 @@ function lista_particulares(){
 }
 
 //Muestra la lista de turnos.
-console.log(lista_turnos.join("\n"));
+function mostrar_listas(){
+    console.log(lista_turnos.join("\n"));
+}
 
 /*-----------------------------------------------------------------------------------*/
 
-//PANEL DE ELIMINACIÓN
-/*Eliminar último turno (Será un botón).*/
+///////////////////////////////*PANEL DE ELIMINACIÓN*///////////////////////////////
 
+/*Eliminar último turno (Será un botón).*/
 function eliminar_ultimo_turno(){
     let eliminar_ultimo_turno = lista_turnos.shift();
     console.log(eliminar_ultimo_turno);
 }
 
-//PANEL DE ASIGNACION
+//////////////////////////////////////PANEL DE ASIGNACION//////////////////////////////////
 
-/*Asignar Sala a Turno OBR*/
-function asignacion_de_sala_obr(){
-    alert("A continuación, asignaremos una Sala a un Turno OBRA SOCIAL.")
-    panel_turno_obr = prompt("Turno OBR-: ");
-    if(panel_turno_obr == turno_obra){
-        alert("Turno ingresado correctamente.")
-        console.log("Turno: " , panel_turno_obr)
-        panel_sala = prompt("Sala a asignar: ");
-        if(panel_sala <= 1 || panel_sala <= 10){
-            console.log("Sala asignada: " , panel_turno_obr)
-            turno_y_sala = "Turno: " + panel_turno_obr + " " + "Sala: " + panel_sala;
-            console.log(turno_y_sala);
-        }
-    }
-    else if(panel_turno_obr != turno_obra){
-        alert("Turno ingresado de forma incorrecta. Intente nuevamente");
-        asignacion_de_sala_obr();
-    }
-}
-
-/*Asignar Sala a Turno PAR*/
-
-function asignacion_de_sala_par(){
-    alert("A continuación, asignaremos una Sala a un Turno PARTICULAR.")
-    panel_turno_par = prompt("Turno PAR-: ");
-    if(panel_turno_par == turno_particular){
-        alert("Turno ingresado correctamente.")
-        console.log("Turno: " , panel_turno_par)
-        panel_sala = prompt("Sala a asignar: ");
-        if(panel_sala <= 1 || panel_sala <= 10){
-            console.log("Sala asignada: " , panel_turno_par)
-            turno_y_sala = "Turno: " + panel_turno_par + " " + "Sala: " + panel_sala;
-            console.log(turno_y_sala);
-        }
-    }
-    else if(panel_turno_par != turno_particular){
-        alert("Turno ingresado de forma incorrecta. Intente nuevamente");
-        asignacion_de_sala_par();
-    }
-}
+//A qué tipo de usuario querés asignarle una sala (Esto no va a estar más después porque hay un input para cada tipo).
 
 function que_tipo_asignar(){
     tipo_asignar = prompt("¿Qué tipo de usuario desea asignar? ¿OBR o PAR?")
@@ -277,10 +238,63 @@ function que_tipo_asignar(){
     }
 }
 
-//------------------------------------------------------------------------------//
-//EJECUCIÓN
+
+/*Asignar Sala a Turno OBR*/
+
+let panel_listado_obr = []
+
+function asignacion_de_sala_obr(){
+    alert("A continuación, asignaremos una Sala a un Turno OBRA SOCIAL.")
+    input_turno_obr = prompt("Turno OBR-: ");
+    if(input_turno_obr == turno_obra){
+        alert("Turno ingresado correctamente.")
+        console.log("Turno: " , input_turno_obr)
+        input_sala = prompt("Sala a asignar: ");
+            if(input_sala <= 1 || input_sala <= 10){
+                console.log("Sala asignada: " , input_turno_obr)
+                turno_y_sala = "Turno: " + input_turno_obr + " " + "Sala: " + input_sala;
+                panel_listado_obr.push = turno_y_sala;
+                console.log(panel_listado_obr);
+                console.log(turno_y_sala);
+            }
+    }
+    else if(input_turno_obr != turno_obra){
+        alert("Turno ingresado de forma incorrecta. Intente nuevamente");
+        asignacion_de_sala_obr();
+    }
+}
+
+/*Asignar Sala a Turno PAR*/
+
+let panel_listado_par = [];
+
+function asignacion_de_sala_par(){
+    alert("A continuación, asignaremos una Sala a un Turno PARTICULAR.")
+    input_turno_par = prompt("Turno PAR-: ");
+    if(input_turno_par == turno_particular){
+        alert("Turno ingresado correctamente.")
+        console.log("Turno: " , input_turno_par)
+        if(input_sala <= 1 || input_sala <= 10){
+            input_sala = prompt("Sala a asignar: ");
+            console.log("Sala asignada: " , input_turno_par)
+            turno_y_sala = ("Turno: " + input_turno_par + " " + "Sala: " + input_sala);
+            panel_listado_par.push = turno_y_sala;
+            console.log(panel_listado_par);
+            console.log(turno_y_sala);
+        }
+    }
+    else if(input_turno_par != turno_particular){
+        alert("Turno ingresado de forma incorrecta. Intente nuevamente");
+        asignacion_de_sala_par();
+    }
+}
+
+////////////////////////////////////////////EJECUCIÓN/////////////////////////////
 alert("ASIGNACIÓN DE NÚMERO");
 turnos();
+mostrar_listas();
 que_tipo_asignar();
 
 
+//ME FALTA TRAER LA PROPIEDAD TURNO DE LA LISTA_OBR Y LISTA_PAR, Y ASIGNARLES UNA SALA. 
+//ME ESTÁ TOMANDO EL ÚLTIMO TURNO, COMO SI LOS DEMÁS NO EXISTIERAN. DEBO TRAER EL DATO DEL ARRAY.
