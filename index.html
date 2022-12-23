@@ -16,40 +16,40 @@
     <div class="div__todo">
         <div class="principal">
             <h3 class="principal__titulo">ASIGNAR TURNOS</h3>
-            <form action="" class="principal__formulario">
-                <label for=""><input type="name" name="nombre" required placeholder="Nombre"></label>
-                <label for=""><input type="name" name="apellido" required placeholder="Apellido"></label>
-                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" required placeholder="DNI"></label>
-                <label for=""><input type="text" name="motivo" required placeholder="Motivo de consulta" class="input__motivo"></label>
+            <form action="" class="principal__formulario" id="form__principal">
+                <label for=""><input type="name" name="nombre" required placeholder="Nombre" class="nombre" id="nombre"></label>
+                <label for=""><input type="name" name="apellido" required placeholder="Apellido" id="apellido"></label>
+                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" required placeholder="DNI" id="dni"></label>
+                <label for=""><input type="text" name="motivo" required placeholder="Motivo de consulta" id="motivo_de_consulta"></label>
                 <label for="">
-                    <select name="Tipo de usuario" id="" required>
+                    <select name="Tipo de usuario" id="tipo_de_usuario" class="tipo_de_usuario" required >
                         <option disabled selected value> -- Seleccione una opción -- </option>
                         <option value="Obra Social">Obra social</option>
                         <option value="Particular">Particular</option>
                     </select>
                 </label>
-                <label for=""><input type="text" name="Obra social" placeholder="Obra Social"></label>
-                <label for=""><input type="text" name="Numero de obra social" placeholder="Número de Obra Social"></label>
-                <label for=""><button type="submit" class="button__solicitar">¡SOLICITAR TURNO!</button></label>
+                <label for=""><input type="text" name="Obra social" placeholder="Obra Social" class="nombre_obra" id="nombre_obra"></label>
+                <label for=""><input type="text" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra"></label>
+                <label for=""><button type="submit" class="button__solicitar" id="btn__solicitar">¡SOLICITAR TURNO!</button></label>
             </form>
             <div class="principal__turnoynumero">
                 <div class="principal__turno">
 
                     <div class="principal__numero">
                         <h3>TURNO</h3>
-                        <h3>--</h3>
+                        <h3 id="turno__ingreso">--</h3>
                     </div>
 
                     <div class="principal__fecha_y_hora">
 
                         <div class="principal__fecha">
                             <h3>FECHA DE INGRESO</h3>
-                            <h3>--:--</h3>
+                            <h3 id="fecha__ingreso">--:--</h3>
                         </div>
 
                         <div class="principal__hora">
                             <h3>HORA DE INGRESO</h3>
-                            <h3>--:--</h3>
+                            <h3 id="hora__ingreso">--:--</h3>
                         </div>
 
                     </div>
@@ -81,8 +81,8 @@
                 <div class="panel__controles2">
                     <h3 class="titulo__asignar-sala">Asignar Sala a Turno</h3>
                     <form action="" class="form__asignar-sala">
-                        <label for=""><input type="text" name="turno" id="" placeholder="Ingrese número de turno OBR" class="input__asignar-sala-a-turnoOBR"></label>
-                        <label for=""><input type="text" name="turno" id="" placeholder="Ingrese número de turno PAR" class="input__asignar-sala-a-turnoPAR"></label>
+                        <label for=""><input type="text" name="turno" id="" placeholder="OBR-X" class="input__asignar-sala-a-turnoOBR"></label>
+                        <label for=""><input type="text" name="turno" id="" placeholder="PAR-X" class="input__asignar-sala-a-turnoPAR"></label>
                         <label for=""><input type="text" name="asignar sala" id="" placeholder="Sala (1 a 10)" class="input__asignar-sala"></label>
                         <label for=""><button type="submit">Asignar Sala</button></label>
                     </form>
@@ -95,6 +95,6 @@
     <footer>
         <h3 class="link__ver-turnos"><a href="./pages/ver_turnos.html">VER TURNOS</a></h3>
     </footer>
-    <script src="./script/script.js"></script>
+    <script src="./script/script2.js"></script>
 </body>
 </html>

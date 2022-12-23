@@ -11,6 +11,7 @@ let tipo_de_usuario = ""; //OBR (OBRA SOCIAL) o PAR (PARTICULAR)
 let ingresar_nuevo_usuario = "";
 let nombre_obra = ""; //Nombre de la Obra Social.
 let numero_obra = ""; //Número de Obra Social.
+
 let numero_sala = ""; //Número de Sala al que debe ir el paciente.
 let input_turno_obr = ""; //input del Turno OBR.
 let input_turno_par = ""; //input del Turno PAR.
@@ -35,7 +36,7 @@ function turnos(){
     hora = reloj.toLocaleTimeString();
     fecha = (`${dia[date.getDay()]}, ${date.getDate()} de ${mes[date.getMonth()]} de ${date.getFullYear()}.`); 
     while(nombre == ""){
-        nombre = prompt("Nombre: ");
+        nombre = document.getElementsByClassName(nombre);
         console.log("Nombre:" , nombre);
     }
     
@@ -293,7 +294,7 @@ function asignacion_de_sala_par(){
 alert("ASIGNACIÓN DE NÚMERO");
 turnos();
 mostrar_listas();
-que_tipo_asignar();
+// que_tipo_asignar();
 
 
 //ME FALTA TRAER LA PROPIEDAD TURNO DE LA LISTA_OBR Y LISTA_PAR, Y ASIGNARLES UNA SALA. 
