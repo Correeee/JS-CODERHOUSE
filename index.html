@@ -32,7 +32,7 @@
                 <label for=""><input type="text" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra"></label>
                 <label for=""><button type="submit" class="button__solicitar" id="btn__solicitar">¡SOLICITAR TURNO!</button></label>
             </form>
-            <div class="principal__turnoynumero">
+            <div class="principal__turnoynumero" id="ventana__impresion">
                 <div class="principal__turno">
 
                     <div class="principal__numero">
@@ -43,18 +43,23 @@
                     <div class="principal__fecha_y_hora">
 
                         <div class="principal__fecha">
-                            <h3>FECHA DE INGRESO</h3>
+                            <h3>FECHA</h3>
                             <h3 id="fecha__ingreso">--:--</h3>
                         </div>
 
                         <div class="principal__hora">
-                            <h3>HORA DE INGRESO</h3>
+                            <h3>HORA</h3>
                             <h3 id="hora__ingreso">--:--</h3>
                         </div>
 
                     </div>
                 </div>
             </div>
+
+            <div class="impresion" id="impresion">
+                <button class="btn__imprimir" id="btn__imprimir">Imprimir Turno</button>
+            </div>
+            
         </div>
 
             <div class="panel">
@@ -62,19 +67,22 @@
                 <div class="panel__lista">
                     <h3 class="panel__titulo">TURNOS ASIGNADOS</h3>
                     <div class="panel__turnos">
-                        <ul class="panel__lista_ul">
-                            <li>-</li>
-                        </ul>
+                        <table class="table">
+                            <tr class="tr__head">
+                                <th>TURNO</th>
+                                <th>SALA</th>
+                            </tr>
+                        </table>
                     </div>
                 </div>
 
                 <div class="panel__controles">
 
-                    <form action="" class="form__eliminar">
-                        <label for=""><input type="text" name="eliminar-usuario" id="" placeholder="Turno a eliminar" class="input__eliminar-usuario"></label>
-                        <label for=""><button type="submit">Eliminar Turno</button></label>
+                    <form action="" class="form__eliminar" id="form__eliminar">
+                        <label for=""><input type="text" name="eliminar-usuario" placeholder="Turno a eliminar" class="input__eliminar-usuario" id="input__eliminar_turno" ></label>
+                        <label for=""><button type="submit" id="btn_eliminar_especifico">Eliminar Turno</button></label>
                     </form>
-                    <label for=""><button type="submit" class="button_eliminar">Eliminar el primer turno de la lista</button></label>
+                    <label for=""><button type="submit" class="button_eliminar" id="button_eliminar">Eliminar el primer turno de la lista</button></label>
 
                 </div>
 

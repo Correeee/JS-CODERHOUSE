@@ -14,8 +14,6 @@ body{
     background-image: url(../multimedia/fondo.png);
 }
 
-
-
 .body__titulo{
     text-align: center;
     font-size: 50px;
@@ -100,7 +98,14 @@ footer{
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    font-size: 22px;
+}
+
+#turno__ingreso{
+    color: var(--color-verde);
+}
+
+#fecha__ingreso, #hora__ingreso{
+    color: red;
 }
 
 .principal__turno{
@@ -111,7 +116,7 @@ footer{
     font-size: large;
     text-align: center;
     font-size: 25px;
-    width: 50rem;
+    width: 60rem;
     height: 34rem;
     background: white;
     border: 3px solid black;
@@ -127,6 +132,9 @@ footer{
     border-top: 3px solid black;
 }
 
+#fecha__ingreso, #hora__ingreso{
+    font-size: 2rem;
+}
 
 .link__ingresar-usuarios, .link__ver-turnos{
     text-align: center;
@@ -165,6 +173,7 @@ a{
     background: white;
     border: 3px solid black;
     border-radius: 1rem;
+    background-image: url(../multimedia/fondo2.png);
 }
 
 .panel__controles, .panel__controles2{
@@ -229,6 +238,68 @@ li{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.impresion{
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.btn__imprimir{
+    font-weight: bold;
+}
+
+/*TABLA*/
+
+table{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+th{
+    margin: 1rem 5rem;
+    font-size: 2rem;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+.tr__head{
+    background-color: white;
+    border: 2px solid black;
+}
+
+tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    text-align: center;
+    background-color: white;
+}
+
+.tr_append{
+    border: 2px solid black;
+    margin: 0.5rem;
+    border-radius: 1rem;
+}
+
+td{
+    font-size: 1.5rem;
+}
+
+.td_append_turno{
+    font-weight: bolder;
+    color: black;
+}
+
+.td_append_sala{
+    font-weight: bolder;
+    color: red;
 }
 
 
