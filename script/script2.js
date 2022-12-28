@@ -3,7 +3,7 @@
 
 let contador_obra = 0;
 let contador_particular = 0;
-let sala = "";
+let sala = "SALA";
 
 /////////////////FECHA Y HORA///////////////////
 
@@ -20,8 +20,6 @@ let mes =  ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Ago
 //INGRESAR: PERMITE REGISTRAR TURNOS, ASIGNARLES UN NÚMERO Y AUMENTAR EL TIEMPO DE ESPERA.
 
 let array_usuarios = [];
-let array_usuarios_obra = [];
-let array_usuarios_particular = [];
 
 function ingresar(){
 
@@ -40,7 +38,7 @@ function ingresar(){
         //DIA Y HORA DEL INGRESO//
         let reloj = new Date(); 
         let hora = reloj.toLocaleTimeString();
-        let fecha = (`${dia[date.getDay()]}, ${date.getDate()} de ${mes[date.getMonth()]} de ${date.getFullYear()}.`); 
+        let fecha = (`${dia[date.getDay()]}, ${date.getDate()} de ${mes[date.getMonth()]} de ${date.getFullYear()}`); 
 
         let tipo_de_usuario = document.getElementById("tipo_de_usuario");
 
@@ -62,6 +60,7 @@ function ingresar(){
                 }
 
                 array_usuarios.push(usuario_obra);
+                alert(`¡ Turno creado: OBR-${contador_obra} ! ✅`)
                 console.log(`OBR-${contador_obra}`);
             }
 
@@ -81,14 +80,14 @@ function ingresar(){
                 }
 
                 array_usuarios.push(usuario_particular);
+                alert(`¡ Turno creado: PAR-${contador_particular} ! ✅`)
                 console.log(`PAR-${contador_particular}`);
 
             }
             console.log("ARRAY USUARIOS" , array_usuarios);
-            alert("¡Turno creado!"); 
             insertar_turno_html();
             listar_turnos();
-
+            form__principal.reset(); //Resetea el formulario.
     })
 }
 
@@ -112,16 +111,16 @@ function insertar_turno_html(){
 function listar_turnos(){
 
     //CREO EL TR Y LO INSERTO
-    let tr = document.createElement("tr");
-    tr.setAttribute("class" , "tr_append");
+    let tr = document.createElement("tr"); //CREA ELEMENTO
+    tr.setAttribute("class" , "tr_append"); //ASIGNA CLASE
 
-    let tr_padre = document.querySelector("tbody")
+    let tr_padre = document.querySelector("tbody") //SELECCIONA
 
-    tr_padre.appendChild(tr);
+    tr_padre.appendChild(tr); //AGREGA EL NODO
 
 
     //CREO LOS TD Y LO INSERTO
-
+    //APPEND TURNO
     let td_turno = document.createElement("td");
     td_turno.setAttribute("class" , "td_append_turno");
 
@@ -129,6 +128,7 @@ function listar_turnos(){
 
     td_padre.appendChild(td_turno);
 
+    //APPEND TURNO
     td_sala = document.createElement("td");
     td_sala.setAttribute("class" , "td_append_sala");
 
@@ -147,17 +147,23 @@ function listar_turnos(){
 
 //ELIMINA EL ÚLTIMO TURNO INGRESADO.
 
-function eliminar_ultimo_turno(){ 
+function eliminar_primer_turno(){ 
 
     let button_eliminar = document.getElementById("button_eliminar");
     
     button_eliminar.addEventListener("click" , function(e){
 
         if(array_usuarios.length > 0){
-            alert("¡Turno eliminado!"); 
+            alert(`¡ Turno eliminado: ${array_usuarios[0].turno} ! ❌`); 
             console.log("Turno eliminado:" , array_usuarios[0].turno);
             array_usuarios.shift();
             console.log(array_usuarios);
+
+            //QUITA DEL LISTADO - REMOVE APPEND
+
+
+
+
         }
         else if(array_usuarios.length === 0){
             alert("No existen turnos para eliminar.")
@@ -172,23 +178,31 @@ function eliminar_turno(){
     let input_eliminar = document.getElementById("input__eliminar_turno");
 
     input_eliminar.addEventListener("change" , function(e){
+        
         let input_eliminar_value = e.target.value;
+        console.log("INPUT: " + input_eliminar_value);
 
-        let btn_eliminar_especifico = document.getElementById("btn_eliminar_especifico");
+        let form_eliminar = document.getElementById("form__eliminar");
 
-        btn_eliminar_especifico.addEventListener("click" , function(e){
-
-            e.preventDefault();
-            console.log("INPUT:" , input_eliminar_value);
-
+        form_eliminar.addEventListener("submit" , function(e){
             
+            e.preventDefault();
 
+            for(let usuario of array_usuarios){
+                if(input_eliminar_value == usuario.turno){
+                    alert("TURNO ELIMINADO: " + input_eliminar_value + " ✅");
+                    
+                    //Llevar el value del input a "". Eliminar el objeto con ese turno del array. Hacer el remove del nodo.
+
+                }
+                else if(input_eliminar_value != usuario.turno){
+                    alert("TURNO NO ENCONTRADO ❌");
+                }
+            }
+            form_eliminar.reset();
         })
-
     })
-
 }
-
 
 //IMPRIME EL TURNO INGRESADO
 
@@ -211,11 +225,9 @@ function imprimir(){
 
 
 
+
 //////////////////////////////FUNCIONES/////////////////////////////
 ingresar();
 eliminar_turno();
-eliminar_ultimo_turno();
+eliminar_primer_turno();
 imprimir();
-
-
-

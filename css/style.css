@@ -16,8 +16,8 @@ body{
 
 .body__titulo{
     text-align: center;
-    font-size: 50px;
-    margin: 1.5rem 0;
+    font-size: 5rem;
+    margin: 1rem 0;
     background-color: white;
     border: 2px solid black;
 }
@@ -71,15 +71,20 @@ select:hover{
     width: 15rem;
     height: 2.5rem;
     font-weight: bold;
+    cursor:pointer;
+    background:#2fe218;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    transition: 0.5s;
 }
 
 .button_eliminar{
-    width: 25rem;
+    width: 30rem;
 }
 
 button:hover{
-    border: var(--color-verde-input);
-    border-radius: 3px;
+    background: red;
 }
 
 .principal{
@@ -117,7 +122,7 @@ footer{
     text-align: center;
     font-size: 25px;
     width: 60rem;
-    height: 34rem;
+    height: 32rem;
     background: white;
     border: 3px solid black;
     border-radius: 1rem;
@@ -132,6 +137,16 @@ footer{
     border-top: 3px solid black;
 }
 
+.principal__fecha{
+    width: 40rem;
+    height: 12rem;
+}
+
+.principal__hora{
+    width: 30rem;
+    height: 12rem;
+}
+
 #fecha__ingreso, #hora__ingreso{
     font-size: 2rem;
 }
@@ -139,7 +154,7 @@ footer{
 .link__ingresar-usuarios, .link__ver-turnos{
     text-align: center;
     font-size: 4rem;
-    margin-top: 3rem;
+    margin: 0 0;
 }
 
 a{
@@ -164,7 +179,7 @@ a{
     text-align: center;
     background-color: white;
     border: 2px solid black;
-    margin-top: 0;
+    margin: 0 0;
 }
 
 .panel__turnos{
@@ -186,7 +201,6 @@ a{
     border: 3px solid black;
     border-radius: 1rem;
     width: 35rem;
-    margin: 1rem 0;
 }
 
 .titulo__asignar-sala{
@@ -198,6 +212,7 @@ a{
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
+    height: 11rem;
 }
 
 .div__todo{
@@ -312,7 +327,7 @@ td{
     background-color: white;
     border: 3px solid black;
     width: 90%;
-    height: 70rem;
+    height: 75rem;
     margin: 0 auto;
     background-image: url(../multimedia/fondo2.png);
 }
@@ -333,9 +348,65 @@ td{
 .lista__titulos{
     margin-top: 1rem;
     margin-bottom: 0;
+    font-size: 5rem;
+}
+
+#hora__actual{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: 3rem auto;
+    color: var(--color-verde);
+    font-size: 10rem;
+    background: white;
+    max-width: 44rem;
+    text-align: center;
 }
 
 
+/* MEDIAQUERIES */
+
+@media screen and (max-width: 1024px){
+
+    .body__titulo{
+        font-size: 4rem;
+    }
+
+    .div__todo{
+        display: flex;
+        flex-direction: column;
+    }
+    .panel{
+        border-top: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .panel__titulo, .panel__lista, .panel__controles, .panel__controles2{
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 425px){
+
+    .body__titulo{
+        font-size: 2rem;
+    }
+
+    .principal__turno{
+        width: 40rem;
+    }
+
+    #hora__actual{
+        font-size: 6rem;
+    }
+
+    .link__ingresar-usuarios, .link__ver-turnos{
+        font-size: 2rem;
+    }
+}
 
 
 
