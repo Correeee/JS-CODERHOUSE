@@ -189,6 +189,7 @@ a{
     border: 3px solid black;
     border-radius: 1rem;
     background-image: url(../multimedia/fondo2.png);
+    overflow: auto;
 }
 
 .panel__controles, .panel__controles2{
@@ -299,7 +300,7 @@ tr{
 
 .tr_append{
     border: 2px solid black;
-    margin: 0.5rem;
+    margin: 1rem;
     border-radius: 1rem;
 }
 
