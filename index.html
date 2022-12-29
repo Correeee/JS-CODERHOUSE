@@ -17,10 +17,10 @@
         <div class="principal">
             <h3 class="principal__titulo">ASIGNAR TURNOS</h3>
             <form action="" class="principal__formulario" id="form__principal">
-                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre"></label>
-                <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido"></label>
-                <label for=""><input type="text" name="dni" minlength="8" maxlength="8"  placeholder="DNI" id="dni"></label>
-                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta"></label>
+                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" ></label>
+                <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido" ></label>
+                <label for=""><input type="text" name="dni" minlength="8" maxlength="8"  placeholder="DNI" id="dni" ></label>
+                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" ></label>
                 <label for="">
                     <select name="Tipo de usuario" id="tipo_de_usuario" class="tipo_de_usuario" required >
                         <option disabled selected value> -- Seleccione una opción -- </option>
@@ -77,19 +77,19 @@
 
                 <div class="panel__controles">
 
-                    <form action="" class="form__eliminar" id="form__eliminar">
+                    <!-- <form action="" class="form__eliminar" id="form__eliminar">
                         <label for=""><input type="text" name="eliminar-usuario" placeholder="Turno a eliminar" class="input__eliminar-usuario" id="input__eliminar_turno" ></label>
                         <label for=""><button type="submit" id="btn__eliminar_especifico">ELIMINAR TURNO</button></label>
-                    </form>
-                    <label for=""><button type="submit" class="button_eliminar" id="button_eliminar">ELIMINAR EL PRIMER TURNO DE LA LISTA</button></label>
+                    </form> -->
+                    <label for="" class="label__eliminar"><button type="submit" class="button_eliminar" id="button_eliminar">ELIMINAR EL PRIMER TURNO DE LA LISTA</button></label>
 
                 </div>
 
                 <div class="panel__controles2">
                     <h3 class="titulo__asignar-sala">Asignar Sala a Turno</h3>
-                    <form action="" class="form__asignar-sala">
-                        <label for=""><input type="text" name="turno" id="" placeholder="TURNO" class="input__asignar-sala-a-turnoOBR"></label>
-                        <label for=""><input type="text" name="asignar sala" id="" placeholder="Sala (1 a 10)" class="input__asignar-sala"></label>
+                    <form action="" class="form__asignar_sala" id="form__asignar_sala">
+                        <label for=""><input type="text" name="turno" placeholder="TURNO" class="input__asignar_turno" id="input__asignar_turno"></label>
+                        <label for=""><input type="text" name="asignar sala" placeholder="Sala (1 a 10)" class="input__asignar_sala" id="input__asignar_sala" disabled></label>
                         <label for=""><button type="submit">ASIGNAR SALA</button></label>
                     </form>
                 </div>
