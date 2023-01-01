@@ -3,7 +3,7 @@
 
 let contador_obra = 0;
 let contador_particular = 0;
-let sala = 0;
+let sala = "-";
 
 /////////////////FECHA///////////////////
 
@@ -179,47 +179,6 @@ function eliminar_primer_turno(){
 
 //Se ingresa un turno. Recorre el array hasta que encuentra el objeto con esa propiedad "turno". Lo quita del DOM. Lo borra del array. NO LA UTILIZARÉ EN EL PROYECTO. ME RESULTA INNECESARIA.
 
-// function eliminar_turno(){
-
-//     let form__eliminar = document.getElementById("form__eliminar");
-
-//     form__eliminar.addEventListener("submit" , function(e){
-
-//         e.preventDefault();
-
-//         let input_eliminar = document.getElementById("input__eliminar_turno").value;
-
-//         let usuario_find = array_usuarios.find(function(usuario){ //BUSCA EL TURNO INGRESADO DENTRO DEL ARRAY.
-//             return usuario.turno == input_eliminar;
-//         })
-
-//         if(usuario_find == undefined){ //Arregla el "undefined" (junto al condicional Else If que prosigue).
-//             usuario_find = "";
-//         }
-
-//         if(input_eliminar == usuario_find.turno){
-            
-//             alert("Turno eliminado: " + input_eliminar + " ✅");
-//             array_usuarios.pop(usuario_find); //BORRA EL OBJETO DEL ARRAY.
-
-//             let tbody_padre = document.querySelector("tbody"); //LLAMA AL NODO PADRE.
-//             tbody_padre.removeChild(tbody_padre.children[]) //REMOVER EL QUE TIENE EL TURNO INGRESADO
-            
-
-//             console.log("<---ARRAY TOTAL--->" , "\n ", array_usuarios); //MUESTRA EL ARRAY RESULTANTE.
-
-//         }
-
-//         else if (input_eliminar != usuario_find.turno || usuario_find == ""){
-
-//             alert("El turno NO existe ❌");
-            
-//         }
-        
-//         form__eliminar.reset();
-//     })
-// }
-
 
 //IMPRIME EL TURNO INGRESADO ✅
 
@@ -237,13 +196,13 @@ function imprimir(){
         ventimp.close();
         console.log("Imprimiendo el Turno ingresado.")
 
-        setTimeout(borrar_turno_html, 20000); 
+        setTimeout(borrar_turno_html, 10000); 
 
     })
 }
 
 
-function habilitar_input(){
+function habilitar_input_select(){
 
     let select = document.getElementById("tipo_de_usuario");
 
@@ -278,33 +237,36 @@ function habilitar_input(){
 function asignar_sala(){
 
     let input_turno = document.getElementById("input__asignar_turno");
-
-    input_turno.addEventListener("change", function(e){
+    input_turno.addEventListener("change" , function(e){
 
         input_turno = e.target.value;
-
-        let turno_array = array_usuarios.find(function(usuario){
+        console.log("INPUT:" , input_turno);
+        
+        let usuario_encontrado = array_usuarios.find(function(usuario){
             return usuario.turno == input_turno;
         })
 
-        console.log("INPUT:" , input_turno)
-        console.log("DATO_ARRAY:" , turno_array.turno)
+        // console.log("<---ENCONTRADO EN ARRAY--->" , usuario_encontrado);
 
-        if(input_turno == turno_array.turno){
-            console.log("Turno encontrado.")
-            
+        if(input_turno == usuario_encontrado?.turno){
             let input_sala = document.getElementById("input__asignar_sala");
             input_sala.disabled=false;
-
-            input_sala.addEventListener("change" , function(e){
-
-                e.preventDefault();
-                input_sala = e.target.value;
-                console.log("INPUT SALA:" , input_sala);
-
-            })
+            
         }
-        
+        else if (input_turno != usuario_encontrado?.turno){
+            let input_sala = document.getElementById("input__asignar_sala");
+            input_sala.disabled=true;
+            alert("El turno NO existe ❌")
+        }
+    })
+
+    let input_sala = document.getElementById("input__asignar_sala");
+    input_sala.addEventListener("change" , function(e){
+
+        e.preventDefault();
+        input_sala = e.target.value;
+        console.log("INPUT SALA:" , input_sala);
+
     })
 
     let form_asignar = document.getElementById("form__asignar_sala")
@@ -349,4 +311,4 @@ ingresar();
 asignar_sala();
 eliminar_primer_turno();
 imprimir();
-habilitar_input();
+habilitar_input_select();
