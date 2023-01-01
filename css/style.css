@@ -401,6 +401,19 @@ td{
     .panel__titulo, .panel__lista, .panel__controles, .panel__controles2{
         margin: 1rem 0;
     }
+
+    .div__turnos{
+        height: 95rem;
+    }
+    .lista__turnos{
+        height: 90rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .div__turnos{
+        height: 70rem;
+    }
 }
 
 @media screen and (max-width: 425px){
@@ -420,8 +433,48 @@ td{
     .link__ingresar-usuarios, .link__ver-turnos{
         font-size: 2rem;
     }
+
+    .div__turnos{
+        height: 73rem;
+    }
 }
 
+@media screen and (max-width: 375px){
+    .principal__turno{
+        width: 35rem;
+    }
+
+    .principal__fecha_y_hora{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .principal__turno{
+        width: 30rem;
+    }
+
+    .principal__fecha_y_hora{
+        font-size: 2rem;
+    }
+
+    .tr__head{
+        width: 30rem;
+    }
+
+    .panel__controles, .panel__controles2{
+        width: 30rem;
+    }
+
+    input{
+        width: 27rem;
+    }
+
+    .panel__turnos{
+        width: 31rem;
+    }
+
+}
 
 
 

@@ -42,7 +42,7 @@ function ingresar(){
 
                 contador_obra++;
 
-                if(contador_obra > 99){ //REINICIA EL CONTADOR.
+                if(contador_obra > 999){ //REINICIA EL CONTADOR.
                     contador_obra = 1;
                 }
 
@@ -69,7 +69,7 @@ function ingresar(){
 
                 contador_particular++;
 
-                if(contador_particular > 99){ //REINICIA EL CONTADOR.
+                if(contador_particular > 999){ //REINICIA EL CONTADOR.
                     contador_particular = 1;
                 }
 
@@ -142,7 +142,7 @@ function listar_turnos(){
 
     let turno_td = array_usuarios[array_usuarios.length-1].turno;
 
-    tr.innerHTML = `<td class="td_append_turno">${turno_td}</td><td class="td_append_sala">-</td>`;
+    tr.innerHTML = `<td class="td_append_turno">${turno_td}</td><td class="td_append_sala" id="td_append_sala_${turno_td}">-</td>`;
 
 }
 
@@ -168,7 +168,7 @@ function eliminar_primer_turno(){
             tbody_padre.removeChild(tbody_padre.children[1]); //ELIMINA EL ÚLTIMO NODO AGREGADO.
 
             console.log("HIJOS:" , tbody_padre.children.length) //MUESTRA LOS HIJOS DE tbody_padre.
-            console.log(array_usuarios); //MUESTRA EL ARRAY.
+            console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios); //MUESTRA EL ARRAY.
         }
         else if(array_usuarios.length === 0){
             alert("No existen turnos para eliminar ❌")
@@ -237,8 +237,10 @@ function habilitar_input_select(){
 function asignar_sala(){
 
     let input_turno = document.getElementById("input__asignar_turno");
-    input_turno.addEventListener("change" , function(e){
 
+    console.log(typeof input_turno);
+
+    input_turno.addEventListener("change" , function(e){
         input_turno = e.target.value;
         console.log("INPUT:" , input_turno);
         
@@ -246,7 +248,7 @@ function asignar_sala(){
             return usuario.turno == input_turno;
         })
 
-        // console.log("<---ENCONTRADO EN ARRAY--->" , usuario_encontrado);
+        console.log("ENCONTRADO EN ARRAY--->" , usuario_encontrado.turno);
 
         if(input_turno == usuario_encontrado?.turno){
             let input_sala = document.getElementById("input__asignar_sala");
@@ -263,7 +265,6 @@ function asignar_sala(){
     let input_sala = document.getElementById("input__asignar_sala");
     input_sala.addEventListener("change" , function(e){
 
-        e.preventDefault();
         input_sala = e.target.value;
         console.log("INPUT SALA:" , input_sala);
 
@@ -272,7 +273,7 @@ function asignar_sala(){
     let form_asignar = document.getElementById("form__asignar_sala")
 
     form_asignar.addEventListener("submit" , function(e){
-        e.preventDefault()
+        e.preventDefault();
 
         let input_turno = document.getElementById("input__asignar_turno").value;
         let input_sala = document.getElementById("input__asignar_sala").value
@@ -285,25 +286,28 @@ function asignar_sala(){
             })
 
             turno_array.sala = input_sala;
-            console.log(turno_array);
-            console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios);
+            console.log("Turno: " + input_turno +" ✅" +"\n" + "Asignado a Sala: " + input_sala + " 🏢");
+            console.log(`<---ARRAY TOTAL: ${array_usuarios.length} usuario/s--->` , "\n" , array_usuarios);
 
             //CAMBIA LA SALA EN EL NODO
 
-            
+            let turno_td = input_turno;
+
+            let td_append_sala = document.getElementById(`td_append_sala_${turno_td}`);
+
+            console.log(turno_td);
+
+            td_append_sala.innerText = input_sala;
 
         }
         else{
             alert("Sala NO asignada ❌" + "\n" + "Ingrese un valor de Sala entre 1 y 10.")
             console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios);
-
         }
         form_asignar.reset();
     })
 
 }
-
-
 
 
 //////////////////////////////FUNCIONES/////////////////////////////
