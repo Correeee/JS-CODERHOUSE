@@ -231,6 +231,12 @@ function habilitar_input_select(){
 
 }
 
+function input_deshabilitado(){ //Deshabilita el input_sala por defecto.
+
+    let input_sala = document.getElementById("input__asignar_sala");
+    input_sala.disabled=true;
+
+}
 
 //ASIGNAR SALA
 
@@ -303,6 +309,7 @@ function asignar_sala(){
             console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios);
         }
         form_asignar.reset();
+        input_deshabilitado();
     })
 
 }
@@ -310,6 +317,7 @@ function asignar_sala(){
 
 //////////////////////////////FUNCIONES/////////////////////////////
 ingresar();
+input_deshabilitado();
 asignar_sala();
 eliminar_primer_turno();
 imprimir();
