@@ -315,6 +315,11 @@ tr{
     border: 2px solid black;
     margin: 1rem;
     border-radius: 1rem;
+    text-align: center;
+}
+
+.td_append_turno, .td_append_sala{
+    width: 10rem;
 }
 
 td{

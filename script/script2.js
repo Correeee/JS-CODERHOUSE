@@ -5,6 +5,11 @@ let contador_obra = 0;
 let contador_particular = 0;
 let sala = "-";
 
+
+//////ARRAY//////
+
+let array_usuarios = [];
+
 /////////////////FECHA///////////////////
 
 let date = new Date();
@@ -15,7 +20,6 @@ let mes =  ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Ago
 
 //INGRESAR: PERMITE REGISTRAR TURNOS, ASIGNARLES UN NÚMERO Y AUMENTAR EL TIEMPO DE ESPERA. ✅
 
-let array_usuarios = [];
 
 function ingresar(){
 
@@ -90,12 +94,14 @@ function ingresar(){
                 console.log(`PAR-${contador_particular}`);
 
             }
-            console.log("ARRAY USUARIOS" , array_usuarios);
+            console.log("ARRAY" , array_usuarios);
             insertar_turno_html();
             listar_turnos();
+            
             form__principal.reset(); //Resetea el formulario.
     })
 }
+
 
 //MUESTRA EL TURNO CREADO RECIENTEMENTE, CON FECHA Y HORA DE INGRESO. ✅
 
@@ -252,6 +258,7 @@ function asignar_sala(){
 
     input_turno.addEventListener("change" , function(e){
         input_turno = e.target.value;
+        input_turno = input_turno.toUpperCase();
         console.log("INPUT:" , input_turno);
         
         let usuario_encontrado = array_usuarios.find(function(usuario){
@@ -286,6 +293,7 @@ function asignar_sala(){
         e.preventDefault();
 
         let input_turno = document.getElementById("input__asignar_turno").value;
+        input_turno = input_turno.toUpperCase();
         let input_sala = document.getElementById("input__asignar_sala").value
 
         if(input_sala >=1 && input_sala <= 10){
