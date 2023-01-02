@@ -378,8 +378,26 @@ td{
     text-align: center;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+} /*Quita las flechas del input tipo number*/
+
+input[type=number]{ /*Si no está esto, se puede aumentar el número con las flechitas*/
+    -moz-appearance:textfield; 
+}
 
 /* MEDIAQUERIES */
+
+@media screen and (max-width: 1440px){
+    .div__turnos{
+        height: 84rem;
+    }
+    .lista__turnos{
+        height: 80rem;
+    }
+}
 
 @media screen and (max-width: 1024px){
 
@@ -403,7 +421,7 @@ td{
     }
 
     .div__turnos{
-        height: 95rem;
+        height: 70rem;
     }
     .lista__turnos{
         height: 90rem;
@@ -440,6 +458,14 @@ td{
 }
 
 @media screen and (max-width: 375px){
+
+    .div__turnos{
+        height: 75rem;
+    }
+
+    .lista__titulos{
+        font-size: 4rem;
+    }
     .principal__turno{
         width: 35rem;
     }

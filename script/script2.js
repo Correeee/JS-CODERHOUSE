@@ -1,4 +1,4 @@
-//UNA APLICACIÓN QUE ASIGNE TURNOS Y LOS DIVIDA EN OBRA SOCIAL Y PARTICULAR. MOSTRARÁ LA HORA Y FECHA DE REGISTRO, ASÍ COMO EL TURNO "OBR-" Y "PAR-" SEGÚN SEA PARTICULAR U OBRA SOCIAL. CUANDO EL TURNO LLEGA A "OBR-99 o PAR-99" SE REINICIA.
+//UNA APLICACIÓN QUE ASIGNE TURNOS Y LOS DIVIDA EN OBRA SOCIAL Y PARTICULAR. MOSTRARÁ LA HORA Y FECHA DE REGISTRO, ASÍ COMO EL TURNO "OBR-" Y "PAR-" SEGÚN SEA PARTICULAR U OBRA SOCIAL. CUANDO EL TURNO LLEGA A "OBR-999 o PAR-999" SE REINICIA.
 //EL HTML ESTÁ DIVIDIDO EN 2: UNO PARA LA PERSONA QUE INGRESA EL TURNO, Y OTRO PARA QUE LOS USUARIOS PUEDAN IR VIENDO LA LISTA DE LOS TURNOS QUE VAN SALIENDO. LO PENSÉ EN UN ESTILO DE "CLÍNICA" O FARMACIA.
 
 let contador_obra = 0;
@@ -235,6 +235,12 @@ function input_deshabilitado(){ //Deshabilita el input_sala por defecto.
 
     let input_sala = document.getElementById("input__asignar_sala");
     input_sala.disabled=true;
+
+    let nombre_obra = document.getElementById("nombre_obra");
+    nombre_obra.disabled=true;
+
+    let numero_obra = document.getElementById("numero_obra");
+    numero_obra.disabled=true;
 
 }
 

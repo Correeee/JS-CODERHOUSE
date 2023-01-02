@@ -17,10 +17,10 @@
         <div class="principal">
             <h3 class="principal__titulo">ASIGNAR TURNOS</h3>
             <form action="" class="principal__formulario" id="form__principal">
-                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" ></label>
-                <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido" ></label>
-                <label for=""><input type="text" name="dni" minlength="8" maxlength="8"  placeholder="DNI" id="dni" ></label>
-                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" ></label>
+                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" required></label>
+                <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido" required></label>
+                <label for=""><input type="text" name="dni" minlength="8" maxlength="8"  placeholder="DNI" id="dni" required></label>
+                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" required></label>
                 <label for="">
                     <select name="Tipo de usuario" id="tipo_de_usuario" class="tipo_de_usuario" required >
                         <option disabled selected value> -- Seleccione una opción -- </option>
@@ -28,8 +28,8 @@
                         <option value="Particular">Particular</option>
                     </select>
                 </label>
-                <label for=""><input type="text" name="Obra social" placeholder="Obra Social" class="nombre_obra" id="nombre_obra"></label>
-                <label for=""><input type="text" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra"></label>
+                <label for=""><input type="text" name="Obra social" placeholder="Obra Social" class="nombre_obra" id="nombre_obra" required></label>
+                <label for=""><input type="number" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra" required></label>
                 <label for=""><button type="submit" class="button__solicitar" id="btn__solicitar">¡SOLICITAR TURNO!</button></label>
             </form>
             <div class="principal__turnoynumero" id="ventana__impresion">
