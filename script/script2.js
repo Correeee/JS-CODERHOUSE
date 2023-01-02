@@ -238,8 +238,6 @@ function asignar_sala(){
 
     let input_turno = document.getElementById("input__asignar_turno");
 
-    console.log(typeof input_turno);
-
     input_turno.addEventListener("change" , function(e){
         input_turno = e.target.value;
         console.log("INPUT:" , input_turno);
@@ -248,7 +246,7 @@ function asignar_sala(){
             return usuario.turno == input_turno;
         })
 
-        console.log("ENCONTRADO EN ARRAY--->" , usuario_encontrado.turno);
+        console.log("ENCONTRADO EN ARRAY--->" , usuario_encontrado?.turno);
 
         if(input_turno == usuario_encontrado?.turno){
             let input_sala = document.getElementById("input__asignar_sala");
