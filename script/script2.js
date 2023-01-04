@@ -1,14 +1,34 @@
 //UNA APLICACIÓN QUE ASIGNE TURNOS Y LOS DIVIDA EN OBRA SOCIAL Y PARTICULAR. MOSTRARÁ LA HORA Y FECHA DE REGISTRO, ASÍ COMO EL TURNO "OBR-" Y "PAR-" SEGÚN SEA PARTICULAR U OBRA SOCIAL. CUANDO EL TURNO LLEGA A "OBR-999 o PAR-999" SE REINICIA.
 //EL HTML ESTÁ DIVIDIDO EN 2: UNO PARA LA PERSONA QUE INGRESA EL TURNO, Y OTRO PARA QUE LOS USUARIOS PUEDAN IR VIENDO LA LISTA DE LOS TURNOS QUE VAN SALIENDO. LO PENSÉ EN UN ESTILO DE "CLÍNICA" O FARMACIA.
 
-let contador_obra = 0;
-let contador_particular = 0;
-let sala = "-";
+/////VARIABLES GLOBALES/////
 
+let contador = 0;
+let sala = "-";
 
 //////ARRAY//////
 
 let array_usuarios = [];
+
+///////LOCAL STORAGE//////
+
+let local = JSON.parse(localStorage.getItem("usuarios"));
+let contador_final = JSON.parse(localStorage.getItem("contador"));
+
+if(local?.length > 0){     //Si existe un local storage, iguala el array a él.
+    array_usuarios = local;
+    contador = contador_final;
+    let ultimo_usuario = array_usuarios[array_usuarios.length-1]
+    let ultimo_turno = ultimo_usuario.turno;
+    console.log("ULTIMO TURNO:" , ultimo_turno);
+    console.log("LOCAL STORAGE:" , array_usuarios);
+    console.log("CONTADOR:" , contador)
+}
+else{
+    console.log("CONTADOR OBRA - NO LOCAL STORAGE:" , contador)
+    console.log("CONTADOR PARTICULAR- NO LOCAL STORAGE:" , contador)
+}
+
 
 /////////////////FECHA///////////////////
 
@@ -44,10 +64,10 @@ function ingresar(){
 
             if(tipo_de_usuario.value == "Obra Social"){
 
-                contador_obra++;
+                contador++;
 
-                if(contador_obra > 999){ //REINICIA EL CONTADOR.
-                    contador_obra = 1;
+                if(contador > 999){ //REINICIA EL CONTADOR.
+                    contador = 1;
                 }
 
                 let usuario_obra = {
@@ -56,7 +76,7 @@ function ingresar(){
                     dni: dni.value, 
                     motivo: motivo_de_consulta.value,
                     tipo_de_usuario: tipo_de_usuario.value,
-                    turno: `OBR-${contador_obra}`,
+                    turno: `OBR-${contador}`,
                     nombre_de_obra: nombre_obra.value,
                     numero_de_obra: numero_obra.value,
                     fecha,
@@ -65,16 +85,16 @@ function ingresar(){
                 }
 
                 array_usuarios.push(usuario_obra);
-                alert(`¡ Turno creado: OBR-${contador_obra} ! ✅`)
-                console.log(`OBR-${contador_obra}`);
+                alert(`¡ Turno creado: OBR-${contador} ! ✅`)
+                console.log(`OBR-${contador}`);
             }
 
             else if(tipo_de_usuario.value == "Particular"){
 
-                contador_particular++;
+                contador++;
 
-                if(contador_particular > 999){ //REINICIA EL CONTADOR.
-                    contador_particular = 1;
+                if(contador > 999){ //REINICIA EL CONTADOR.
+                    contador = 1;
                 }
 
                 let usuario_particular = {
@@ -83,25 +103,45 @@ function ingresar(){
                     dni: dni.value, 
                     motivo: motivo_de_consulta.value,
                     tipo_de_usuario: tipo_de_usuario.value,
-                    turno: `PAR-${contador_particular}`,
+                    turno: `PAR-${contador}`,
                     fecha,
                     hora,
                     sala,
                 }
-
+                
                 array_usuarios.push(usuario_particular);
-                alert(`¡ Turno creado: PAR-${contador_particular} ! ✅`)
-                console.log(`PAR-${contador_particular}`);
+                alert(`¡ Turno creado: PAR-${contador} ! ✅`)
+                console.log(`PAR-${contador}`);
 
             }
+            storage();
+            contador_storage();
             console.log("ARRAY" , array_usuarios);
             insertar_turno_html();
             listar_turnos();
-            
+
             form__principal.reset(); //Resetea el formulario.
     })
 }
 
+function storage(){
+
+    let array_usuarios_JSON = JSON.stringify(array_usuarios);
+
+    localStorage.setItem("usuarios" , array_usuarios_JSON);
+
+    let local_get =  localStorage.getItem("usuarios");
+    
+    let local_storage = JSON.parse(local_get);
+
+    console.log("LOCAL STORAGE:" , local_storage);
+}
+
+function contador_storage(){
+    let contador_JSON = JSON.stringify(contador);
+    localStorage.setItem("contador" , contador_JSON)
+
+}
 
 //MUESTRA EL TURNO CREADO RECIENTEMENTE, CON FECHA Y HORA DE INGRESO. ✅
 
@@ -276,6 +316,7 @@ function asignar_sala(){
             let input_sala = document.getElementById("input__asignar_sala");
             input_sala.disabled=true;
             alert("El turno NO existe ❌")
+            form_asignar.reset();
         }
     })
 
@@ -328,9 +369,27 @@ function asignar_sala(){
 
 }
 
+function mayus(e) {
+    e.value = e.value.toUpperCase();
+}
+
+// function dni(){
+//     let dni = document.getElementById("dni");
+
+//     dni.addEventListener("change" , function(e){
+//         dni = e.target.value;
+//         console.log(dni.length)
+//         if(dni.length != 8 || dni != parseInt(dni)){
+//             alert("Debe tener 8 carácteres numéricos.");
+//             window.location.reload();
+//         }
+        
+//     })
+// }
 
 //////////////////////////////FUNCIONES/////////////////////////////
 ingresar();
+// dni();
 input_deshabilitado();
 asignar_sala();
 eliminar_primer_turno();

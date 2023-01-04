@@ -20,6 +20,7 @@ body{
     margin: 1rem 0;
     background-color: white;
     border: 2px solid black;
+    user-select: none;
 }
 
 .principal__titulo{
@@ -28,6 +29,7 @@ body{
     background-color: white;
     border: 2px solid black;
     margin: 0 0;
+    user-select: none;
 }
 
 .principal__formulario{
@@ -76,7 +78,7 @@ select:hover{
     color: white;
     border: none;
     border-radius: 0.5rem;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .button_eliminar{
@@ -138,6 +140,7 @@ footer{
     border: 3px solid black;
     border-radius: 1rem;
     background-image: url(../multimedia/fondo2.png);
+    user-select: none;
 }
 
 .principal__fecha_y_hora{
@@ -191,6 +194,7 @@ a{
     background-color: white;
     border: 2px solid black;
     margin: 0 0;
+    user-select: none;
 }
 
 .panel__turnos{
@@ -300,6 +304,7 @@ th{
 .tr__head{
     background-color: white;
     border: 2px solid black;
+    user-select: none;
 }
 
 tr{
@@ -349,6 +354,7 @@ td{
     height: 75rem;
     margin: 0 auto;
     background-image: url(../multimedia/fondo2.png);
+    user-select: none;
 }
 
 .lista__hora{
@@ -393,6 +399,7 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     -moz-appearance:textfield; 
 }
 
+
 /* MEDIAQUERIES */
 
 @media screen and (max-width: 1440px){
@@ -431,11 +438,20 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     .lista__turnos{
         height: 90rem;
     }
+
+    .principal__fecha, .principal__hora{
+        width: 30rem;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
     .div__turnos{
         height: 70rem;
+    }
+
+    .principal__fecha, .principal__hora{
+        width: 30rem;
     }
 }
 
@@ -443,6 +459,14 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
 
     .body__titulo{
         font-size: 2rem;
+    }
+
+    .principal__fecha, .principal__hora{
+        width: 20rem;
+    }
+
+    #fecha__ingreso, #hora__ingreso{
+        font-size: 1.5rem;
     }
 
     .principal__turno{
@@ -468,6 +492,11 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
         height: 75rem;
     }
 
+    .principal__fecha, .principal__hora{
+        width: 14rem;
+    }
+
+
     .lista__titulos{
         font-size: 4rem;
     }
@@ -482,11 +511,15 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
 
 @media screen and (max-width: 320px){
     .principal__turno{
-        width: 30rem;
+        width: 29rem;
     }
 
     .principal__fecha_y_hora{
         font-size: 2rem;
+    }
+
+    .principal__fecha, .principal__hora{
+        width: 14rem;
     }
 
     .tr__head{

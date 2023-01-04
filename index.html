@@ -19,7 +19,7 @@
             <form action="" class="principal__formulario" id="form__principal">
                 <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" ></label>
                 <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido" ></label>
-                <label for=""><input type="text" name="dni" minlength="8" maxlength="8"  placeholder="DNI" id="dni" ></label>
+                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" placeholder="DNI" id="dni" ></label>
                 <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" ></label>
                 <label for="">
                     <select name="Tipo de usuario" id="tipo_de_usuario" class="tipo_de_usuario" required >
@@ -82,8 +82,8 @@
                 <div class="panel__controles2">
                     <h3 class="titulo__asignar-sala">Asignar Sala a Turno</h3>
                     <form action="" class="form__asignar_sala" id="form__asignar_sala">
-                        <label for=""><input type="text" name="turno" placeholder="TURNO" class="input__asignar_turno" id="input__asignar_turno"></label>
-                        <label for=""><input type="text" name="asignar sala" placeholder="Sala (1 a 10)" class="input__asignar_sala" id="input__asignar_sala" disabled></label>
+                        <label for=""><input type="text" name="turno" placeholder="TURNO" class="input__asignar_turno" id="input__asignar_turno" onkeyup="mayus(this);" required></label>
+                        <label for=""><input type="number" name="asignar sala" placeholder="Sala (1 a 10)" class="input__asignar_sala" id="input__asignar_sala" disabled required></label>
                         <label for=""><button type="submit">ASIGNAR SALA</button></label>
                     </form>
                 </div>
