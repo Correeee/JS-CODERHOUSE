@@ -9,7 +9,6 @@ let sala = "-";
 //////ARRAY//////
 
 let array_usuarios = [];
-
 ///////LOCAL STORAGE//////
 
 let local = JSON.parse(localStorage.getItem("usuarios"));
@@ -125,7 +124,7 @@ function ingresar(){
     })
 }
 
-function usuarios_storage(){
+function usuarios_storage(){ //ACTUALIZA EL STORAGE.
 
     let array_usuarios_JSON = JSON.stringify(array_usuarios);
 
@@ -218,7 +217,7 @@ function eliminar_primer_turno(){
     
     button_eliminar.addEventListener("click" , function(e){
 
-        if(array_usuarios.length > 0){
+        if(array_usuarios.length > 0 ){
             alert(`¡ Turno eliminado: ${array_usuarios[0].turno} ! ✅`); 
             console.log("Turno eliminado:" , array_usuarios[0].turno);
             array_usuarios.shift();
@@ -232,7 +231,9 @@ function eliminar_primer_turno(){
 
             console.log("HIJOS:" , tbody_padre.children.length) //MUESTRA LOS HIJOS DE tbody_padre.
             console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios); //MUESTRA EL ARRAY.
+            usuarios_storage(); //ACTUALIZA EL LOCAL STORAGE.
         }
+
         else if(array_usuarios.length === 0){
             alert("No existen turnos para eliminar ❌")
         }
@@ -388,14 +389,57 @@ function asignar_sala(){
     })
 }
 
+function recuperar_salas(){
+
+    if(local?.length > 0){
+        console.log("<---SALAS RECUPERADAS DEL LOCAL STORAGE--->")
+        
+        for(let usuario of local){
+
+            console.log("TURNO:" , usuario.turno, "/ SALA:" , usuario.sala);
+            
+            let td_append = document.getElementById(`td_append_sala_${usuario.turno}`)
+            console.log(td_append);
+            td_append.innerText = usuario.sala;
+
+        }
+    }
+
+}
+
+function reiniciar_sistema(){
+
+    let btn_reiniciar = document.getElementById("btn_reiniciar");
+
+    btn_reiniciar.addEventListener("click" , function(e){
+
+        let btn_pregunta = prompt("Si queres reiniciar el sistema escribe: 'REINICIAR SISTEMA' ✅ / ❌").toUpperCase();
+
+        if(btn_pregunta == "REINICIAR SISTEMA"){
+            console.log("ACCIÓN:" , btn_pregunta);
+            alert("Reinicio exitoso ✅ Se recargará la página.")
+            localStorage.clear()
+            location.reload()
+        }
+        else{
+            alert("Sistema NO reiniciado ❌")
+        }
+
+    })
+
+}
+
+//VUELVE MAYUSCULA LO ESCRITO EN EL INPUT.
 function mayus(e) {
     e.value = e.value.toUpperCase();
 }
 
 //////////////////////////////FUNCIONES/////////////////////////////
 ingresar();
+recuperar_salas();
 input_deshabilitado();
 asignar_sala();
 eliminar_primer_turno();
 imprimir();
 habilitar_input_select();
+reiniciar_sistema();

@@ -399,6 +399,12 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     -moz-appearance:textfield; 
 }
 
+#btn_reiniciar{
+    width: 30rem;
+    height: 5rem;
+    margin: 1rem auto;
+    font-size: large;
+}
 
 /* MEDIAQUERIES */
 
@@ -536,6 +542,16 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
 
     .panel__turnos{
         width: 31rem;
+    }
+
+    .button_eliminar{
+        width: 28rem;
+        font-size: 1.2rem;
+    }
+
+    #btn_reiniciar{
+        width: 28rem;
+        font-size: 1.5rem;
     }
 
 }
