@@ -25,8 +25,7 @@ if(local?.length > 0){
     console.log("ULTIMO TURNO INGRESADO:" , ultimo_turno);
 }
 else{
-    console.log("CONTADOR OBRA - NO LOCAL STORAGE:" , contador)
-    console.log("CONTADOR PARTICULAR- NO LOCAL STORAGE:" , contador)
+    console.log("CONTADOR - NO LOCAL-STORAGE:" , contador)
 }
 
 
@@ -155,6 +154,7 @@ function insertar_turno_html(){
 
     let hora__ingreso = document.getElementById("hora__ingreso"); //MUESTRA HORA DE TURNO INGRESADO 
     hora__ingreso.innerHTML = array_usuarios[array_usuarios.length-1].hora;
+    imprimir();
 }
 
 //BORRA EL TURNO MOSTRADO EN EL HTML (class: principal__turnoynumero).
@@ -440,6 +440,5 @@ recuperar_salas();
 input_deshabilitado();
 asignar_sala();
 eliminar_primer_turno();
-imprimir();
 habilitar_input_select();
 reiniciar_sistema();
