@@ -15,14 +15,15 @@ let array_usuarios = [];
 let local = JSON.parse(localStorage.getItem("usuarios"));
 let contador_final = JSON.parse(localStorage.getItem("contador"));
 
-if(local?.length > 0){     //Si existe un local storage, iguala el array a él.
-    array_usuarios = local;
-    contador = contador_final;
+if(local?.length > 0){     
+    array_usuarios = local; //Si existe un local storage, iguala el array a él.
+    contador = contador_final; //Recupera el número final del contador, antes de haber salido del sitio web.
     let ultimo_usuario = array_usuarios[array_usuarios.length-1]
     let ultimo_turno = ultimo_usuario.turno;
-    console.log("ULTIMO TURNO:" , ultimo_turno);
-    console.log("LOCAL STORAGE:" , array_usuarios);
-    console.log("CONTADOR:" , contador)
+    listar_turnos_storage();
+    console.log("USUARIOS LOCAL-STORAGE:" , array_usuarios);
+    console.log("CONTADOR LOCAL-STORAGE:" , contador)
+    console.log("ULTIMO TURNO INGRESADO:" , ultimo_turno);
 }
 else{
     console.log("CONTADOR OBRA - NO LOCAL STORAGE:" , contador)
@@ -114,8 +115,8 @@ function ingresar(){
                 console.log(`PAR-${contador}`);
 
             }
-            storage();
-            contador_storage();
+            usuarios_storage(); //GUARDA EN EL LOCAL STORAGE LOS USUARIOS.
+            contador_storage(); //GUARDA EN EL LOCAL STORAGE EL ÚLTIMO TURNO DEL CONTADOR.
             console.log("ARRAY" , array_usuarios);
             insertar_turno_html();
             listar_turnos();
@@ -124,7 +125,7 @@ function ingresar(){
     })
 }
 
-function storage(){
+function usuarios_storage(){
 
     let array_usuarios_JSON = JSON.stringify(array_usuarios);
 
@@ -189,6 +190,22 @@ function listar_turnos(){
     let turno_td = array_usuarios[array_usuarios.length-1].turno;
 
     tr.innerHTML = `<td class="td_append_turno">${turno_td}</td><td class="td_append_sala" id="td_append_sala_${turno_td}">-</td>`;
+
+}
+
+function listar_turnos_storage(){ //LISTA LOS TURNOS DEL LOCAL STORAGE, Y CREA NUEVOS Y LOS AGREGA AL DOM.
+
+    for (let i = 0; i < local.length; i++) { //RECORRE EL LOCAL STORAGE
+        let turno_td = local[i].turno;
+        // console.log("TURNOS LOCAL:" , turno_td);
+        let tbody_padre = document.querySelector("tbody") //SELECCIONA AL PADRE
+
+        let tr = document.createElement("tr"); //CREA ELEMENTO
+        tr.setAttribute("class" , "tr_append"); //ASIGNA CLASE
+    
+        tbody_padre.append(tr); //AGREGA EL NODO
+        tr.innerHTML = `<td class="td_append_turno">${turno_td}</td><td class="td_append_sala" id="td_append_sala_${turno_td}">-</td>`;
+    }
 
 }
 
@@ -320,8 +337,8 @@ function asignar_sala(){
         }
     })
 
-    let input_sala = document.getElementById("input__asignar_sala");
-    input_sala.addEventListener("change" , function(e){
+        let input_sala = document.getElementById("input__asignar_sala");
+        input_sala.addEventListener("change" , function(e){
 
         input_sala = e.target.value;
         console.log("INPUT SALA:" , input_sala);
@@ -345,51 +362,38 @@ function asignar_sala(){
             })
 
             turno_array.sala = input_sala;
+            
             console.log("Turno: " + input_turno +" ✅" +"\n" + "Asignado a Sala: " + input_sala + " 🏢");
             console.log(`<---ARRAY TOTAL: ${array_usuarios.length} usuario/s--->` , "\n" , array_usuarios);
 
-            //CAMBIA LA SALA EN EL NODO
+            //CAMBIA LA SALA EN EL NODO.
 
             let turno_td = input_turno;
-
             let td_append_sala = document.getElementById(`td_append_sala_${turno_td}`);
 
             console.log(turno_td);
 
             td_append_sala.innerText = input_sala;
-
+            
         }
+
         else{
             alert("Sala NO asignada ❌" + "\n" + "Ingrese un valor de Sala entre 1 y 10.")
             console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios);
         }
+
+        usuarios_storage() //En este caso, llamo a la función para guardar la sala en el LOCAL STORAGE("usuario").
         form_asignar.reset();
         input_deshabilitado();
     })
-
 }
 
 function mayus(e) {
     e.value = e.value.toUpperCase();
 }
 
-// function dni(){
-//     let dni = document.getElementById("dni");
-
-//     dni.addEventListener("change" , function(e){
-//         dni = e.target.value;
-//         console.log(dni.length)
-//         if(dni.length != 8 || dni != parseInt(dni)){
-//             alert("Debe tener 8 carácteres numéricos.");
-//             window.location.reload();
-//         }
-        
-//     })
-// }
-
 //////////////////////////////FUNCIONES/////////////////////////////
 ingresar();
-// dni();
 input_deshabilitado();
 asignar_sala();
 eliminar_primer_turno();
