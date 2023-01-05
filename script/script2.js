@@ -253,7 +253,7 @@ function imprimir(){
     btn__imprimir.addEventListener("click" , function(){
 
         let ficha = document.getElementById("ventana__impresion");
-        let ventimp = window.open();
+        let ventimp = window.open("ventana__impresion");
         ventimp.document.write(ficha.innerHTML);
         ventimp.document.close();
         ventimp.print();

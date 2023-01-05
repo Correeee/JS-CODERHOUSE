@@ -406,6 +406,14 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     font-size: large;
 }
 
+#copyright{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+    font-size: small;
+}
+
 /* MEDIAQUERIES */
 
 @media screen and (max-width: 1440px){

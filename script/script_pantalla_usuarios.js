@@ -1,4 +1,6 @@
-function mostrar_hora(){
+
+
+function mostrar_hora(){ //MUESTRA Y MANTIENE ACTUALIZADA LA HORA.
 
     let mostrar_reloj = document.getElementById("hora__actual");
 
