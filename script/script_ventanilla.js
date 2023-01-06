@@ -208,7 +208,6 @@ function listar_turnos_storage(){ //LISTA LOS TURNOS DEL LOCAL STORAGE, Y CREA N
 
 }
 
-
 //ELIMINA EL ÚLTIMO TURNO INGRESADO.✅
 
 function eliminar_primer_turno(){ 

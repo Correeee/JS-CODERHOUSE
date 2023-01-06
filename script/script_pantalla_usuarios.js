@@ -1,12 +1,12 @@
 
 function turno_actual(){
-    
+
     let local = JSON.parse(localStorage.getItem("usuarios"));
 
-    console.log("LISTA LOCAL-STORAGE" , local[0]);
+    // console.log("LISTA LOCAL-STORAGE" , local[0]);
 
     let padre = document.getElementById("turno_y_sala")
-    console.log(padre)
+    // console.log(padre)
 
     let hijo = document.createElement("div")
     hijo.setAttribute("class" , "tr_append" )
@@ -14,8 +14,10 @@ function turno_actual(){
 
     padre.append(hijo)
 
-    hijo.innerHTML = `<div class="td_append_turno" id="hijo_append_prop">${local[0].turno}</div><div class="td_append_sala hijo_append_prop" id="hijo_append_${local[0].turno}">${local[0].sala}</div>`
-    
+        if(local?.length > 0){ //Si el local no existe, no tira error del innerHTML.
+
+        hijo.innerHTML = `<div class="td_append_turno" id="hijo_append_prop">${local[0].turno}</div><div class="td_append_sala hijo_append_prop" id="hijo_append_${local[0].turno}">${local[0].sala}</div>`
+    }
 
 }
 
@@ -32,15 +34,17 @@ function recargar_turno(){
 
     let local = JSON.parse(localStorage.getItem("usuarios"));
 
-    console.log("LISTA LOCAL-STORAGE" , local[0]);
+    // console.log("LISTA LOCAL-STORAGE" , local[0]);
 
     let padre = document.getElementById("turno_y_sala")
-    console.log(padre)
+    // console.log(padre)
 
     let hijo = document.getElementById("hijo_append")
 
-    hijo.innerHTML = `<div class="td_append_turno" id="hijo_append_prop">${local[0].turno}</div><div class="td_append_sala hijo_append_prop" id="hijo_append_${local[0].turno}">${local[0].sala}</div>`
+        if(local?.length > 0){ //Si el local no existe, no tira error del innerHTML.
 
+        hijo.innerHTML = `<div class="td_append_turno" id="hijo_append_prop">${local[0].turno}</div><div class="td_append_sala hijo_append_prop" id="hijo_append_${local[0].turno}">${local[0].sala}</div>`
+    }
 }
 
 setInterval( mostrar_hora , 1000); //Actualiza el reloj.
