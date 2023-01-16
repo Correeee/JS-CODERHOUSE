@@ -2,7 +2,6 @@
 //EL HTML ESTÁ DIVIDIDO EN 2: UNO PARA LA PERSONA QUE INGRESA EL TURNO, Y OTRO PARA QUE LOS USUARIOS PUEDAN IR VIENDO LA LISTA DE LOS TURNOS QUE VAN SALIENDO. LO PENSÉ EN UN ESTILO DE "CLÍNICA" O FARMACIA.
 
 /////VARIABLES GLOBALES/////
-
 let contador = 0;
 let sala = "-";
 
@@ -84,7 +83,13 @@ function ingresar(){
                 }
 
                 array_usuarios.push(usuario_obra);
-                alert(`¡ Turno creado: OBR-${contador} ! ✅`)
+                Swal.fire({
+                        title: '¡TURNO CREADO!',
+                        text: `OBR-${contador}`,
+                        icon: 'success',
+                        confirmButtonColor: '#2fe218',
+                    }
+                )
                 console.log(`OBR-${contador}`);
             }
 
@@ -109,7 +114,13 @@ function ingresar(){
                 }
                 
                 array_usuarios.push(usuario_particular);
-                alert(`¡ Turno creado: PAR-${contador} ! ✅`)
+                Swal.fire({
+                        title: '¡TURNO CREADO!',
+                        text: `PAR-${contador}`,
+                        icon: 'success',
+                        confirmButtonColor: '#2fe218',
+                    }
+                )
                 console.log(`PAR-${contador}`);
 
             }
@@ -189,7 +200,6 @@ function listar_turnos(){
     let turno_td = array_usuarios[array_usuarios.length-1].turno;
 
     tr.innerHTML = `<td class="td_append_turno">${turno_td}</td><td class="td_append_sala" id="td_append_sala_${turno_td}">-</td>`;
-
 }
 
 function listar_turnos_storage(){ //LISTA LOS TURNOS DEL LOCAL STORAGE, Y CREA NUEVOS Y LOS AGREGA AL DOM.
@@ -217,7 +227,14 @@ function eliminar_primer_turno(){
     button_eliminar.addEventListener("click" , function(e){
 
         if(array_usuarios.length > 0 ){
-            alert(`¡ Turno eliminado: ${array_usuarios[0].turno} ! ✅`); 
+
+            Swal.fire({
+                title: '¡TURNO ELIMINADO!',
+                text: `${array_usuarios[0].turno}`,
+                icon: 'success',
+                confirmButtonColor: '#2fe218',
+            })
+
             console.log("Turno eliminado:" , array_usuarios[0].turno);
             array_usuarios.shift();
             console.log(array_usuarios);
@@ -234,7 +251,11 @@ function eliminar_primer_turno(){
         }
 
         else if(array_usuarios.length === 0){
-            alert("No existen turnos para eliminar ❌")
+            Swal.fire({
+                title: 'NO HAY TURNOS REGISTRADOS',
+                icon: 'error',
+                confirmButtonColor: '#2fe218',
+            })
         }
     })
 }
@@ -332,7 +353,12 @@ function asignar_sala(){
         else if (input_turno != usuario_encontrado?.turno){
             let input_sala = document.getElementById("input__asignar_sala");
             input_sala.disabled=true;
-            alert("El turno NO existe ❌")
+            Swal.fire({
+                title: 'EL TURNO NO EXISTE',
+                text: `Vuelva a intentarlo`,
+                icon: 'error',
+                confirmButtonColor: '#2fe218',
+            })
             form_asignar.reset();
         }
     })
@@ -355,7 +381,12 @@ function asignar_sala(){
         let input_sala = document.getElementById("input__asignar_sala").value
 
         if(input_sala >=1 && input_sala <= 10){
-            alert("Turno: " + input_turno +" ✅" +"\n" + "Asignado a Sala: " + input_sala + " 🏢")
+            Swal.fire({
+                title: 'SALA ASIGNADA',
+                text: `"${input_turno}" asignado a Sala: ${input_sala} 🏢`,
+                icon: 'success',
+                confirmButtonColor: '#2fe218',
+            })
 
             let turno_array = array_usuarios.find(function(usuario){
                 return usuario.turno == input_turno;
@@ -378,10 +409,14 @@ function asignar_sala(){
         }
 
         else{
-            alert("Sala NO asignada ❌" + "\n" + "Ingrese un valor de Sala entre 1 y 10.")
+            Swal.fire({
+                title: 'SALA NO ASIGNADA',
+                text: 'Ingrese un valor de sala entre 1 y 10',
+                icon: 'error',
+                confirmButtonColor: '#2fe218',
+            })
             console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios);
         }
-
         usuarios_storage() //En este caso, llamo a la función para guardar la sala en el LOCAL STORAGE("usuario").
         form_asignar.reset();
         input_deshabilitado();

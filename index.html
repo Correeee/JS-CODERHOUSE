@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./multimedia/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>PANEL DE CONTROL | VENTANILLA</title>
 </head>
@@ -17,10 +18,10 @@
         <div class="principal">
             <h3 class="principal__titulo">ASIGNAR TURNOS</h3>
             <form action="" class="principal__formulario" id="form__principal">
-                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" ></label>
-                <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido" ></label>
-                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" placeholder="DNI" id="dni" ></label>
-                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" ></label>
+                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" autocomplete="off"></label>
+                <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido" autocomplete="off"></label>
+                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" placeholder="DNI" id="dni" autocomplete="off"></label>
+                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" autocomplete="off"></label>
                 <label for="">
                     <select name="Tipo de usuario" id="tipo_de_usuario" class="tipo_de_usuario" required >
                         <option disabled selected value> -- Seleccione una opción -- </option>
@@ -28,8 +29,8 @@
                         <option value="Particular">Particular</option>
                     </select>
                 </label>
-                <label for=""><input type="text" name="Obra social" placeholder="Obra Social" class="nombre_obra" id="nombre_obra" ></label>
-                <label for=""><input type="number" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra" ></label>
+                <label for=""><input type="text" name="Obra social" placeholder="Obra Social" class="nombre_obra" id="nombre_obra" autocomplete="off"></label>
+                <label for=""><input type="number" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra" autocomplete="off"></label>
                 <label for=""><button type="submit" class="button__solicitar" id="btn__solicitar">¡SOLICITAR TURNO!</button></label>
             </form>
             <div class="principal__turnoynumero" id="ventana__impresion">
@@ -83,8 +84,8 @@
                 <div class="panel__controles2">
                     <h3 class="titulo__asignar-sala">Asignar Sala a Turno</h3>
                     <form action="" class="form__asignar_sala" id="form__asignar_sala">
-                        <label for=""><input type="text" name="turno" placeholder="TURNO" class="input__asignar_turno" id="input__asignar_turno" onkeyup="mayus(this);" required></label>
-                        <label for=""><input type="number" name="asignar sala" placeholder="Sala (1 a 10)" class="input__asignar_sala" id="input__asignar_sala" disabled required></label>
+                        <label for=""><input type="text" name="turno" placeholder="TURNO" class="input__asignar_turno" id="input__asignar_turno" onkeyup="mayus(this);" autocomplete="off" required></label>
+                        <label for=""><input type="number" name="asignar sala" placeholder="Sala (1 a 10)" class="input__asignar_sala" id="input__asignar_sala" autocomplete="off" disabled required></label>
                         <label for=""><button type="submit">ASIGNAR SALA</button></label>
                     </form>
                 </div>
@@ -97,6 +98,7 @@
         <h3 class="link__ver-turnos"><a href="./pages/ver_turnos.html" id="ver_turnos">VER TURNOS</a></h3>
         <h4 id="copyright">© 2022 - Maximiliano Correa</h4>
     </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./script/script_ventanilla.js"></script>
 </body>
 </html>
