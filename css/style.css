@@ -1,6 +1,10 @@
 :root{
     --color-verde-input:2px solid #2fe218;
     --color-verde:#2fe218;
+    --color-rojo: #e63946;
+    --color-azul: #457b9d;
+    --color-fondo: #f0d02f;
+    --color-verde2: #52b788;
 }
 
 html{
@@ -12,6 +16,7 @@ html{
 
 body{
     background-image: url(../multimedia/fondo.png);
+    user-select: none;
 }
 
 .body__titulo{
@@ -20,7 +25,6 @@ body{
     margin: 1rem 0;
     background-color: white;
     border: 2px solid black;
-    user-select: none;
 }
 
 .principal__titulo{
@@ -29,7 +33,6 @@ body{
     background-color: white;
     border: 2px solid black;
     margin: 0 0;
-    user-select: none;
 }
 
 .principal__formulario{
@@ -141,7 +144,6 @@ footer{
     border: 3px solid black;
     border-radius: 1rem;
     background-image: url(../multimedia/fondo2.png);
-    user-select: none;
 }
 
 .principal__fecha_y_hora{
@@ -195,7 +197,6 @@ a{
     background-color: white;
     border: 2px solid black;
     margin: 0 0;
-    user-select: none;
 }
 
 .panel__turnos{
@@ -300,7 +301,6 @@ th{
 .tr__head{
     background-color: white;
     border: 2px solid black;
-    user-select: none;
 }
 
 tr{
@@ -365,8 +365,8 @@ td{
     height: 75rem;
     margin: 0 auto;
     background-image: url(../multimedia/fondo2.png);
-    user-select: none;
 }
+
 
 
 #hijo_append{
@@ -416,7 +416,10 @@ td{
 }
 
 .lista__hora{
-    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     border: 3px solid black;
     margin: 1rem;
 }
@@ -441,10 +444,27 @@ td{
     align-content: center;
     margin: 3rem auto;
     color: var(--color-verde);
-    font-size: 10rem;
+    font-size: 8rem;
     background: white;
+    border: 5px solid #2fe218;
     max-width: 44rem;
     text-align: center;
+    padding: 0 1rem;
+}
+
+#temperatura{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: 3rem auto;
+    color: var(--color-rojo);
+    border: 5px solid #e63946;
+    background: white;
+    font-size: 8rem;
+    max-width: 44rem;
+    text-align: center;
+    padding: 0 1rem;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -499,6 +519,7 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     text-align: center;
     margin: 0 0;
 }
+
 /* MEDIAQUERIES */
 
 @media screen and (max-width: 1440px){
@@ -547,6 +568,17 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     }
 }
 
+@media screen and (max-width: 840px) {
+
+    .lista__titulos{
+        font-size: 4rem;
+    }
+
+    #temperatura, #hora__actual{
+        font-size: 5rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .div__turnos{
         height: 70rem;
@@ -557,7 +589,7 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     }
 
     .h3__turnoysala, #hijo_append_prop, .hijo_append_prop{
-        font-size: 6rem;
+        font-size: 5rem;
     }
 
     .titulo__noturnos{
@@ -565,6 +597,14 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
         font-weight: bold;
         text-align: center;
         margin: 0 0;
+    }
+
+    .lista__titulos{
+        font-size: 3rem;
+    }
+
+    #temperatura, #hora__actual{
+        font-size: 4rem;
     }
 
 }
@@ -580,6 +620,16 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     #hora__actual{
         font-size: 8rem;
     }
+
+    .lista__titulos{
+        font-size: 2rem;
+    }
+
+
+    #temperatura, #hora__actual{
+        font-size: 2rem;
+    }
+
 }
 
 @media screen and (max-width: 425px){
@@ -600,9 +650,6 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
         width: 40rem;
     }
 
-    #hora__actual{
-        font-size: 6rem;
-    }
 
     .link__ingresar-usuarios, .link__ver-turnos{
         font-size: 2rem;
@@ -643,10 +690,6 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
         width: 14rem;
     }
 
-
-    .lista__titulos{
-        font-size: 4rem;
-    }
     .principal__turno{
         width: 35rem;
     }
@@ -661,6 +704,14 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
 
     .h3__turnoysala, #hijo_append_prop, .hijo_append_prop{
         font-size: 3.5rem;
+    }
+
+    .lista__titulos{
+        font-size: 1.5rem;
+    }
+
+    #temperatura, #hora__actual{
+        font-size: 1.5rem;
     }
 }
 
