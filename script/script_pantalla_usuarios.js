@@ -21,7 +21,7 @@ function turno_actual(){
         
     }
     else if(local?.length == 0){
-        hijo.innerHTML = "";
+        hijo.innerHTML = "<p class='titulo__noturnos'>NO EXISTEN TURNOS</p>";
     }
 }
 

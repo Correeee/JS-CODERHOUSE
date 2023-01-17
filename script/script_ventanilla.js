@@ -383,7 +383,7 @@ function asignar_sala(){
         if(input_sala >=1 && input_sala <= 10){
             Swal.fire({
                 title: 'SALA ASIGNADA',
-                text: `"${input_turno}" asignado a Sala: ${input_sala} 🏢`,
+                text: `🏢 ${input_turno} asignado a SALA ${input_sala} 🏢`,
                 icon: 'success',
                 confirmButtonColor: '#2fe218',
             })
@@ -451,9 +451,15 @@ function reiniciar_sistema(){
 
         if(btn_pregunta == "REINICIAR SISTEMA"){
             console.log("ACCIÓN:" , btn_pregunta);
-            alert("Reinicio exitoso ✅ Se recargará la página.")
-            localStorage.clear()
-            location.reload()
+            Swal.fire({
+                title: 'REINICIO DE SISTEMA',
+                text: `SE RECARGARÁ LA PÁGINA`,
+                icon: 'success',
+                confirmButtonColor: '#2fe218',
+                showConfirmButton: false,
+            }
+        )
+        setTimeout(resetear_sistema , 3000)
         }
         else{
             alert("Sistema NO reiniciado ❌")
@@ -461,6 +467,11 @@ function reiniciar_sistema(){
 
     })
 
+}
+
+function resetear_sistema(){ //REINICIA EL SISTEMA. BORRA EL LOCAL Y EL ARRAY.
+    localStorage.clear()
+    location.reload()
 }
 
 //VUELVE MAYUSCULA LO ESCRITO EN EL INPUT.
