@@ -10,6 +10,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="shortcut icon" href="./multimedia/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style-print.css" media="print" />
     <title>PANEL DE CONTROL | VENTANILLA</title>
 </head>
 <body>
@@ -18,10 +19,10 @@
         <div class="principal">
             <h3 class="principal__titulo">ASIGNAR TURNOS</h3>
             <form action="" class="principal__formulario" id="form__principal">
-                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" autocomplete="off"></label>
+                <label for=""><input type="name" name="nombre"  placeholder="Nombre" class="nombre" id="nombre" autocomplete="off" required></label>
                 <label for=""><input type="name" name="apellido"  placeholder="Apellido" id="apellido" autocomplete="off"></label>
-                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" placeholder="DNI" id="dni" autocomplete="off"></label>
-                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" autocomplete="off"></label>
+                <label for=""><input type="text" name="dni" minlength="8" maxlength="8" placeholder="DNI" id="dni" autocomplete="off" required></label>
+                <label for=""><input type="text" name="motivo"  placeholder="Motivo de consulta" id="motivo_de_consulta" autocomplete="off" required></label>
                 <label for="">
                     <select name="Tipo de usuario" id="tipo_de_usuario" class="tipo_de_usuario" required >
                         <option disabled selected value> -- Seleccione una opción -- </option>
@@ -29,8 +30,8 @@
                         <option value="Particular">Particular</option>
                     </select>
                 </label>
-                <label for=""><input type="text" name="Obra social" placeholder="Obra Social" class="nombre_obra" id="nombre_obra" autocomplete="off"></label>
-                <label for=""><input type="number" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra" autocomplete="off"></label>
+                <label for=""><input type="text" name="Obra social" placeholder="Obra Social" class="nombre_obra" id="nombre_obra" autocomplete="off" required></label>
+                <label for=""><input type="number" name="Numero de obra social" placeholder="Número de Obra Social" class="numero_obra" id="numero_obra" autocomplete="off" required></label>
                 <label for=""><button type="submit" class="button__solicitar" id="btn__solicitar">¡SOLICITAR TURNO!</button></label>
             </form>
             <div class="principal__turnoynumero" id="ventana__impresion">
@@ -58,7 +59,7 @@
             </div>
 
             <div class="impresion" id="impresion">
-                <button class="btn__imprimir" id="btn__imprimir">IMPRIMIR TURNO 📇</button>
+                <button class="btn__imprimir" id="btn__imprimir" onclick="window.print()">IMPRIMIR TURNO 📇</button>
             </div>
             
         </div>

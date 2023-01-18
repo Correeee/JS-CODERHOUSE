@@ -168,7 +168,6 @@ function insertar_turno_html(){
 
     let hora__ingreso = document.getElementById("hora__ingreso"); //MUESTRA HORA DE TURNO INGRESADO 
     hora__ingreso.innerHTML = array_usuarios[array_usuarios.length-1].hora;
-    imprimir();
 }
 
 //BORRA EL TURNO MOSTRADO EN EL HTML (class: principal__turnoynumero).
@@ -269,24 +268,7 @@ function eliminar_primer_turno(){
 
 //IMPRIME EL TURNO INGRESADO ✅
 
-function imprimir(){
-    
-    let btn__imprimir = document.getElementById("btn__imprimir");
 
-    btn__imprimir.addEventListener("click" , function(){
-
-        let ficha = document.getElementById("ventana__impresion");
-        let ventimp = window.open("ventana__impresion");
-        ventimp.document.write(ficha.innerHTML);
-        ventimp.document.close();
-        ventimp.print();
-        ventimp.close();
-        console.log("Imprimiendo el Turno ingresado.")
-
-        setTimeout(borrar_turno_html, 10000); 
-
-    })
-}
 
 
 function habilitar_input_select(){

@@ -1,0 +1,20 @@
+@media print{
+    head,
+    .body__titulo, 
+    .panel,
+    .principal__titulo,
+    .principal__formulario,
+    .impresion,
+    #ver_turnos,
+    footer{
+        display: none;
+    }
+
+    #turno__ingreso{
+        color: var(--color-verde);
+    }
+    
+    #fecha__ingreso, #hora__ingreso{
+        color: red;
+    }
+}

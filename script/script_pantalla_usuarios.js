@@ -1,12 +1,7 @@
 /////SONIDO/////
 let sonido = new Audio("../multimedia/sonido/bell.wav")
 
-/////VARIABLES PARA LA API//////
-
-let temperatura;
-
 //////////////API//////////////////
-
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&units=metric&lang=es&appid=c35e8ea0fba6b3b63fc9262fac9f84c5")
     .then(response => response.json())
@@ -41,6 +36,10 @@ function turno_actual(){
 
     padre.append(hijo)
 
+        if(local == undefined) //Si no hay LocalStorage muestra "No existen turnos".
+        {
+            hijo.innerHTML = "<p class='titulo__noturnos'>NO EXISTEN TURNOS</p>";
+        }
 
         if(local?.length > 0 && local[0].sala != "-"){ //Si el local no existe, no tira error del innerHTML.
 
