@@ -358,7 +358,7 @@ function asignar_sala(){
             input_sala.disabled=true;
             Swal.fire({
                 title: 'EL TURNO NO EXISTE',
-                text: `Vuelva a intentarlo`,
+                text: `VUELVA A INTENTARLO`,
                 icon: 'error',
                 confirmButtonColor: '#2fe218',
             })
@@ -386,7 +386,7 @@ function asignar_sala(){
         if(input_sala >=1 && input_sala <= 10){
             Swal.fire({
                 title: 'SALA ASIGNADA',
-                text: `🏢 ${input_turno} asignado a SALA ${input_sala} 🏢`,
+                text: `🏢 ${input_turno} ASIGNADO A SALA: ${input_sala} 🏢`,
                 icon: 'success',
                 confirmButtonColor: '#2fe218',
             })
@@ -452,6 +452,7 @@ function reiniciar_sistema(){
     btn_reiniciar.addEventListener("click" , function(e){
 
         let btn_pregunta = prompt("Si queres reiniciar el sistema escribe: 'REINICIAR SISTEMA' ✅ / ❌").toUpperCase();
+        
 
         if(btn_pregunta == "REINICIAR SISTEMA"){
             console.log("ACCIÓN:" , btn_pregunta);
@@ -466,7 +467,13 @@ function reiniciar_sistema(){
         setTimeout(resetear_sistema , 3000)
         }
         else{
-            alert("Sistema NO reiniciado ❌")
+            Swal.fire({
+                title: 'SISTEMA NO REINICIADO',
+                text: `VUELVA A INTENTARLO`,
+                icon: 'error',
+                confirmButtonColor: '#2fe218',
+                showConfirmButton: false,
+            })
         }
 
     })
