@@ -428,7 +428,7 @@ td{
     font-size: 3rem;
     border: 3px solid black;
     margin: 1rem;
-    height: 54rem;
+    height: 60rem;
 }
 
 .lista__titulos{
@@ -455,7 +455,7 @@ td{
 #temperatura{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
     margin: 3rem auto;
     color: var(--color-rojo);
@@ -520,6 +520,11 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     margin: 0 0;
 }
 
+.img__clima{
+    width: 5rem;
+    height: 5rem;
+}
+
 /* MEDIAQUERIES */
 
 @media screen and (max-width: 1440px){
@@ -577,6 +582,11 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     #temperatura, #hora__actual{
         font-size: 5rem;
     }
+
+    .img__clima{
+        width: 4rem;
+        height: 4rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -607,6 +617,11 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
         font-size: 4rem;
     }
 
+    .img__clima{
+        width: 3rem;
+        height: 3rem;
+    }
+
 }
 
 @media screen and (max-width: 520px){
@@ -630,6 +645,10 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
         font-size: 2rem;
     }
 
+    .img__clima{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 425px){
@@ -712,6 +731,11 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
 
     #temperatura, #hora__actual{
         font-size: 1.5rem;
+    }
+    
+    .img__clima{
+        width: 1rem;
+        height: 1rem;
     }
 }
 

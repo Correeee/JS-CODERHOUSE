@@ -1,24 +1,24 @@
 /////SONIDO/////
 let sonido = new Audio("../multimedia/sonido/bell.wav")
 
-//////GEO///////
-
 /////VARIABLES PARA LA API//////
 
 let temperatura;
 
 //////////////API//////////////////
 
+
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&units=metric&lang=es&appid=c35e8ea0fba6b3b63fc9262fac9f84c5")
     .then(response => response.json())
     .then(data => {
         console.log(data);
         let temperatura = data.main.temp;
+        temperatura = temperatura.toFixed(1)
         console.log("Temperatura: " , temperatura);
         let icono = data.weather[0].icon;
         console.log(icono)
 
-        document.getElementById("temperatura").innerHTML = `${temperatura}°C`
+        document.getElementById("temperatura").innerHTML = `${temperatura}°C <img src="http://openweathermap.org/img/wn/${icono}@2x.png" alt="clima" class="img__clima">`
     }
         )
 
