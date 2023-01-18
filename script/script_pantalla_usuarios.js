@@ -17,8 +17,10 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&units=metr
         console.log("Temperatura: " , temperatura);
         let icono = data.weather[0].icon;
         console.log(icono)
+        let nombre = data.name
+        console.log(nombre)
 
-        document.getElementById("temperatura").innerHTML = `${temperatura}°C <img src="http://openweathermap.org/img/wn/${icono}@2x.png" alt="clima" class="img__clima">`
+        document.getElementById("temperatura").innerHTML = `${temperatura}°C <img src="http://openweathermap.org/img/wn/${icono}@2x.png" alt="clima" class="img__clima"> <p class="clima__ciudad">${nombre} </p>`
     }
         )
 
