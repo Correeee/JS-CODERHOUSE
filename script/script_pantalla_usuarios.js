@@ -1,6 +1,3 @@
-/////SONIDO/////
-let sonido = new Audio("../multimedia/sonido/bell.wav")
-
 //////////////API//////////////////
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&units=metric&lang=es&appid=c35e8ea0fba6b3b63fc9262fac9f84c5")

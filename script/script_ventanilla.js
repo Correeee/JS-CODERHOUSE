@@ -494,9 +494,9 @@ function llamada_campana(){ //CAMPANADA
 
 function llamada_voz(){ // TEXTO A VOZ. Ejemplo: "Turno PAR-1 ingrese a Sala 1".
     let local = JSON.parse(localStorage.getItem("usuarios"));
-    let mensaje = new SpeechSynthesisUtterance(`Turno ${local[0]?.turno}, por favor, ingrese a sala ${local[0]?.sala}`)
+    let mensaje = new SpeechSynthesisUtterance(`Turno, ${local[0]?.turno}, por favor, ingrese a sala ${local[0]?.sala}`)
         console.log(mensaje)
-        mensaje.rate = 0.65
+        mensaje.rate = 0.62
         mensaje.lang = voces[0]
         mensaje.voice = voces[0]
 
