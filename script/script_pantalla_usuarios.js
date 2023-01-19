@@ -40,8 +40,8 @@ function turno_actual(){
             hijo.innerHTML = "<p class='titulo__noturnos'>NO EXISTEN TURNOS</p>";
         }
 
-        if(local?.length > 0 && local[0].sala != "-"){ //Si el local no existe, no tira error del innerHTML.
-
+        if(local?.length > 0 && local[0]?.sala != "-"){ //Si el local no existe, no tira error del innerHTML.
+            
         hijo.innerHTML = `<div class="td_append_turno" id="hijo_append_prop">${local[0].turno}</div><div class="td_append_sala hijo_append_prop" id="hijo_append_${local[0].turno}">${local[0].sala}</div>`
     }
         else if(local?.length == 0){
@@ -70,54 +70,22 @@ function recargar_turno(){
 
     let hijo = document.getElementById("hijo_append")
 
-        if(local?.length > 0 && local[0].sala != "-"){ //Si el local no existe, no tira error del innerHTML. El local[0].sala != "-" hace que no se actualice si la sala no está asignada.
-
+        if(local?.length > 0 && local[0]?.sala != "-"){ //Si el local no existe, no tira error del innerHTML. El local[0].sala != "-" hace que no se actualice si la sala no está asignada.
+            
         hijo.innerHTML = `<div class="td_append_turno" id="hijo_append_prop">${local[0].turno}</div><div class="td_append_sala hijo_append_prop" id="hijo_append_${local[0].turno}">${local[0].sala}</div>`
-        
     }
         else if(local?.length == 0){
             hijo.innerHTML = "<p class='titulo__noturnos'>NO EXISTEN TURNOS</p>";
         }
 }
 
-///////////TEXTO A VOZ/////////////
-
-
-
-function llamada_campana(){ //CAMPANADA
-    let local = JSON.parse(localStorage.getItem("usuarios"))
-
-        if(local?.length > 0 && local[0]?.sala != "-"){
-            sonido.play()
-            sonido.currentTime = 0;
-            setTimeout(llamada_voz , 2000)
-        }
-
-}
-
-function llamada_voz(){ //TEXTO A VOZ
-
-    let local = JSON.parse(localStorage.getItem("usuarios"))
-
-    window.speechSynthesis.onvoiceschanged = function() {
-        let voces = window.speechSynthesis.getVoices()
-        console.log(voces)
-        let mensaje = new SpeechSynthesisUtterance(`Turno ${local[0].turno} ingrese a sala ${local[0].sala}`)
-        // console.log(mensaje)
-        console.log(mensaje)
-        mensaje.rate = 0.65
-        mensaje.lang = voces[0].lang
-        mensaje.voice = voces[0]
-        speechSynthesis.speak(mensaje)
-    };
-
-}
-
-// llamada_campana() 
-
 setInterval( mostrar_hora , 1000); //Actualiza el reloj.
 setInterval (recargar_turno , 1000) //Actualiza el último turno cada 10 segundos.
-/////////////////////*FUNCIONES*/////////////////////
+
+
+
+
+/////////////////////*HILO DE FUNCIONES*/////////////////////
 
 mostrar_hora();
 turno_actual();

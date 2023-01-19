@@ -491,6 +491,12 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     font-size: large;
 }
 
+#btn_llamar{
+    text-align: center;
+    margin: 1rem auto;
+    width: 18rem
+}
+
 #copyright{
     display: flex;
     flex-direction: row;

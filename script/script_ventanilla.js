@@ -265,11 +265,6 @@ function eliminar_primer_turno(){
 //Se ingresa un turno. Recorre el array hasta que encuentra el objeto con esa propiedad "turno". Lo quita del DOM. Lo borra del array. NO LA UTILIZARÉ EN EL PROYECTO. ME RESULTA INNECESARIA.
 
 
-//IMPRIME EL TURNO INGRESADO ✅
-
-
-
-
 function habilitar_input_select(){
 
     let select = document.getElementById("tipo_de_usuario");
@@ -312,7 +307,7 @@ function input_deshabilitado(){ //Deshabilita el input_sala por defecto.
 
 }
 
-//ASIGNAR SALA
+//ASIGNAR SALA ✅
 
 function asignar_sala(){
 
@@ -332,7 +327,7 @@ function asignar_sala(){
         if(input_turno == usuario_encontrado?.turno){
             let input_sala = document.getElementById("input__asignar_sala");
             input_sala.disabled=false;
-            
+
         }
         else if (input_turno != usuario_encontrado?.turno){
             let input_sala = document.getElementById("input__asignar_sala");
@@ -389,6 +384,7 @@ function asignar_sala(){
             console.log(turno_td);
 
             td_append_sala.innerText = input_sala;
+
         }
 
         else{
@@ -471,7 +467,44 @@ function mayus(e) {
 }
 
 
-//////////////////////////////FUNCIONES/////////////////////////////
+// LLAMA A TURNO CON CAMPANADA Y VOZ ✅
+
+let voces = speechSynthesis.getVoices() 
+// console.log(voces)
+
+function llamar(){ //BOTON DE LLAMADO A TURNO
+
+    let btn_llamar = document.getElementById("btn_llamar")
+
+    btn_llamar.addEventListener("click" , function(e){
+        let local = JSON.parse(localStorage.getItem("usuarios"));
+        console.log(local)
+        if(local?.length > 0 && local[0].sala != "-"){
+            llamada_campana()
+            setTimeout(llamada_voz , 3000)
+        }
+    })
+
+}
+
+function llamada_campana(){ //CAMPANADA
+            sonido.play()
+            sonido.currentTime = 0;
+}
+
+function llamada_voz(){ // TEXTO A VOZ. Ejemplo: "Turno PAR-1 ingrese a Sala 1".
+    let local = JSON.parse(localStorage.getItem("usuarios"));
+    let mensaje = new SpeechSynthesisUtterance(`Turno ${local[0]?.turno} ingrese a sala ${local[0]?.sala}`)
+        console.log(mensaje)
+        mensaje.rate = 0.65
+        mensaje.lang = voces[0]
+        mensaje.voice = voces[0]
+
+        speechSynthesis.speak(mensaje)
+}
+
+//////////////////////////////HILO DE FUNCIONES/////////////////////////////
+
 ingresar();
 recuperar_salas();
 input_deshabilitado();
@@ -479,3 +512,4 @@ asignar_sala();
 eliminar_primer_turno();
 habilitar_input_select();
 reiniciar_sistema();
+llamar();
