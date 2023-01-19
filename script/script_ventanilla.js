@@ -246,7 +246,6 @@ function eliminar_primer_turno(){
             let tbody_padre = document.querySelector("tbody");
 
             tbody_padre.removeChild(tbody_padre.children[1]); //ELIMINA EL ÚLTIMO NODO AGREGADO.
-
             console.log("HIJOS:" , tbody_padre.children.length) //MUESTRA LOS HIJOS DE tbody_padre.
             console.log("<---ARRAY TOTAL--->" , "\n" , array_usuarios); //MUESTRA EL ARRAY.
             usuarios_storage(); //ACTUALIZA EL LOCAL STORAGE.
@@ -390,7 +389,6 @@ function asignar_sala(){
             console.log(turno_td);
 
             td_append_sala.innerText = input_sala;
-            
         }
 
         else{
@@ -471,6 +469,7 @@ function resetear_sistema(){ //REINICIA EL SISTEMA. BORRA EL LOCAL Y EL ARRAY.
 function mayus(e) {
     e.value = e.value.toUpperCase();
 }
+
 
 //////////////////////////////FUNCIONES/////////////////////////////
 ingresar();

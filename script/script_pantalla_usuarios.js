@@ -19,7 +19,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&units=metr
     }
         )
 
-
         
 
 function turno_actual(){
@@ -81,6 +80,40 @@ function recargar_turno(){
         }
 }
 
+///////////TEXTO A VOZ/////////////
+
+
+
+function llamada_campana(){ //CAMPANADA
+    let local = JSON.parse(localStorage.getItem("usuarios"))
+
+        if(local?.length > 0 && local[0]?.sala != "-"){
+            sonido.play()
+            sonido.currentTime = 0;
+            setTimeout(llamada_voz , 2000)
+        }
+
+}
+
+function llamada_voz(){ //TEXTO A VOZ
+
+    let local = JSON.parse(localStorage.getItem("usuarios"))
+
+    window.speechSynthesis.onvoiceschanged = function() {
+        let voces = window.speechSynthesis.getVoices()
+        console.log(voces)
+        let mensaje = new SpeechSynthesisUtterance(`Turno ${local[0].turno} ingrese a sala ${local[0].sala}`)
+        // console.log(mensaje)
+        console.log(mensaje)
+        mensaje.rate = 0.65
+        mensaje.lang = voces[0].lang
+        mensaje.voice = voces[0]
+        speechSynthesis.speak(mensaje)
+    };
+
+}
+
+// llamada_campana() 
 
 setInterval( mostrar_hora , 1000); //Actualiza el reloj.
 setInterval (recargar_turno , 1000) //Actualiza el último turno cada 10 segundos.
