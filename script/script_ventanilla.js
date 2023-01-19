@@ -2,7 +2,7 @@
 //EL HTML ESTÁ DIVIDIDO EN 2: UNO PARA LA PERSONA QUE INGRESA EL TURNO, Y OTRO PARA QUE LOS USUARIOS PUEDAN IR VIENDO LA LISTA DE LOS TURNOS QUE VAN SALIENDO. LO PENSÉ EN UN ESTILO DE "CLÍNICA" O FARMACIA.
 
 /////SONIDO/////
-let sonido = new Audio("../multimedia/sonido/bell.mp3")
+let sonido = new Audio("./multimedia/sonido/bell.mp3")
 
 /////VARIABLES GLOBALES/////
 let contador = 0;
