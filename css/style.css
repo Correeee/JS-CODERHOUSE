@@ -183,7 +183,6 @@ a{
     background-color: white;
     border: 2px solid black;
     border-radius: 5px;
-
 }
 
 .panel{
@@ -538,6 +537,21 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     width: 5rem;
     height: 5rem;
 }
+
+#footer__link{
+    color: white;
+    font-weight: bold;
+    background-color: var(--color-verde);
+    border: none;
+    border-radius: none;
+    animation: color 2s linear infinite;
+}
+
+#footer__link:hover{
+    color: black;
+}
+
+
 
 /* MEDIAQUERIES */
 
