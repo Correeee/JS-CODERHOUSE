@@ -115,6 +115,7 @@ footer{
     margin: 1rem 0;
 }
 
+
 .principal__turnoynumero{
     display: flex;
     flex-direction: row;
@@ -502,7 +503,7 @@ input[type=number]{ /*Si no está esto, se puede aumentar el número con las fle
     flex-direction: row;
     justify-content: flex-end;
     font-size: small;
-    margin: 0;
+    margin: 0.14rem 0 0 0;
 }
 
 /*SWEET ALERT*/
